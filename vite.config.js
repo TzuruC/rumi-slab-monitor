@@ -11,7 +11,6 @@ export default defineConfig({
     crossorigin: '',
     css: {
         devSourcemap: true,
-        
     },
     server: {
         open: './index.html',

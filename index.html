@@ -1,15 +1,170 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div class="container">
-      <div id="app"></div>
-    </div>
-    <script type="module" src="./main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>專案名稱-索引頁</title>
+        <!-- Font Awesome Solid + Brands -->
+        <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+        <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+        <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+        <!-- Swiepr -->
+        <link rel="stylesheet" href="Plugin/swiper/swiper-bundle.min.css" />
+        <!-- Bootstrap Popper -->
+        <script src="Plugin/popper/popper.min.js"></script>
+    </head>
+    <body>
+        <style>
+            html,
+            body {
+                position: relative;
+                height: 100%;
+            }
+
+            body {
+                background: #eee;
+                font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                color: #000;
+                margin: 0;
+                padding: 0;
+            }
+
+            .swiper {
+                width: 100%;
+                height: 100%;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #eeeeee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .swiper-slide img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .swiper-slide {
+                width: 80%;
+            }
+
+            .swiper-slide:nth-child(2n) {
+                width: 80%;
+            }
+
+            .swiper-slide:nth-child(3n) {
+                width: 40%;
+            }
+            /* 自定義 */
+            .swiper-pagination {
+                position: static;
+            }
+            .swiper-pagination-bullet {
+                width: auto;
+                height: auto;
+                padding: 8px 20px;
+                border-radius: 4px;
+                color: #fff;
+                font-size: 16px;
+            }
+        </style>
+        <div class="container p-5">
+            <h1 class="text-center fw-bold">專案名稱-頁面索引</h1>
+            <!-- Slider main container -->
+            <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                <div
+                    class="py-3 swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"
+                >
+                    <span
+                        class="swiper-pagination-bullet-active"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Check indexFrontPages"
+                        aria-current="true"
+                    >
+                    </span>
+                    <span
+                        class="swiper-pagination-bullet"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Check indexBackPages"
+                    ></span>
+                </div>
+
+                <div class="swiper-wrapper" id="swiper-wrapper-8ea208964de1008af" aria-live="polite">
+                    <div
+                        class="swiper-slide swiper-slide-active d-flex"
+                        style="margin-right: 30px"
+                        role="group"
+                        aria-label="1 / 3"
+                    >
+                        <table class="w-100">
+                            <tr>
+                                <td><%- include('./layout/dev/indexFrontPages'); -%></td>
+                            </tr>
+                            <tr>
+                                <td><%- include('./layout/dev/indexBackPages'); -%></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div
+                        class="swiper-slide swiper-slide-next"
+                        style="margin-right: 30px"
+                        role="group"
+                        aria-label="2 / 3"
+                    >
+                        <%- include('./layout/dev/indexBackPages'); -%>
+                    </div>
+                </div>
+                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+            </div>
+        </div>
+
+        <script type="module" src="/main.js"></script>
+        <script src="Plugin/swiper/swiper-bundle.min.js"></script>
+        <script>
+            // swiper 參數
+            var swiper = new Swiper('.mySwiper', {
+                slidesPerView: 'auto',
+                centeredSlides: false,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        var labels = ['前台頁面', '後台頁面']; // 這裡定義你想顯示的文字
+                        return '<span class="' + className + '">' + labels[index] + '</span>';
+                    },
+                },
+            });
+        </script>
+        <script>
+            const copyText = document.querySelectorAll('.copyText');
+            copyText.forEach((e) => {
+                e.addEventListener('dblclick', (e) => {
+                    const textToCopy = e.target.innerText;
+                    // 複製文字到剪貼板
+                    navigator.clipboard
+                        .writeText(textToCopy)
+                        .then(() => {
+                            e.target.innerHTML = `${textToCopy}<span class="mx-1 px-1 bg-secondary text-white d-inline-block">已複製 !</span>`;
+                            setTimeout(() => {
+                                e.target.innerHTML = `${textToCopy}`;
+                            }, 1000);
+                        })
+                        .catch((err) => {
+                            console.error('文字複製失敗: ', err);
+                        });
+                });
+            });
+        </script>
+    </body>
 </html>

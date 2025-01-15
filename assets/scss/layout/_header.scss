@@ -1,0 +1,122 @@
+.SLABNavbar {
+    background-color: rgb(79, 79, 79);
+    z-index: 2560;
+    display: block;
+}
+.logo-img {
+    width: 30px;
+    height: 40px;
+}
+.logo-txt {
+    width: 160px;
+    height: 45px;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+// NAVBAR
+$navHoverBg: #292929;
+$navHoverBorder: 0px 4px 0px #028fd6;
+$navbarHeight: 43px;
+.nav-pills {
+    min-height: $navbarHeight;
+}
+.nav-pills {
+    .nav-link {
+        margin-right: 1px;
+        border-radius: 0;
+        &:hover,
+        &.show,
+        &.active {
+            background: $navHoverBg;
+            box-shadow: $navHoverBorder;
+        }
+    }
+
+    &.icon-nav {
+        .nav-link {
+            padding: 10px;
+            transition: none;
+            &:hover,
+            &.show,
+            &.active {
+                // 覆蓋樣式
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.nav-item.dropdown ul.dropdown-menu {
+    padding: 0;
+    margin: 0;
+    z-index: 2560;
+    background-color: #4f4f4f;
+    min-width: 0rem;
+    border-radius: 2px;
+    transform: translate(-2px, $navbarHeight) !important;
+    li {
+        line-height: 10px;
+    }
+    a.nav-link,
+    a {
+        padding: 14px 12px;
+        font-size: 14px;
+        text-align: center;
+        color: #fff;
+        box-shadow: inset 0px 0px 1px 0px #272727;
+        margin-bottom: 3px;
+        &:hover {
+            background: $navHoverBg;
+            box-shadow: $navHoverBorder;
+        }
+    }
+}
+.nav-pills.icon-nav .nav-item.dropdown ul.dropdown-menu {
+    transform: translate(-2px, $navbarHeight) !important;
+}
+.dropdown-item.dropdown-footer {
+    font-size: 12px;
+    border-top: 1px solid #fff;
+}
+.dropdown-menu.dropdown-menu-lg {
+    padding: 0;
+    margin: 0;
+    z-index: 2560;
+    background-color: #4f4f4f;
+    min-width: 0rem;
+    border-radius: 2px;
+    transform: translate(-2px, $navbarHeight) !important;
+    a {
+        padding: 12px;
+        color: #fff;
+        &:hover {
+            background: $navHoverBg;
+            box-shadow: $navHoverBg;
+        }
+    }
+    h3.dropdown-item-title {
+        font-size: 16px;
+    }
+    .text-sm {
+        font-size: 14px;
+    }
+}
+.dropdown-menu-lg .dropdown-divider {
+    margin: 0;
+    // background: #e9ecef;
+    // background-color: #e9ecef !important;
+}
+
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -5px;
+}
+#NavAlarm.dropdown-toggle::after,
+#NavSettingbutton.dropdown-toggle::after {
+    display: none;
+}
