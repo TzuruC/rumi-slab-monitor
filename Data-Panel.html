@@ -18,56 +18,8 @@
     <div class="wrapper">
         <div class="container-fluid g-0">
             <%- include('./layout/pageHeader'); -%>
-                <div class="d-flex">
-                    <div class="SideMenu">
-                        <div class="w-100">
-                            <div class="embed-responsive embed-responsive-3by4">
-                                <img class="w-100" src="assets/Image/vessel.jpg" alt="ship-photo">
-                            </div>
-                        </div>
-                        <div class="SideMenu-List">
-                            <a href="#" class="item active">
-                                <i class="fas fa-ship"></i>
-                                <div>
-                                    <span class="SideMenu-zh">船舶資訊</span>
-                                    <span class="SideMenu-en">Vessel Information</span>
-                                </div>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="fas fa-certificate"></i>
-                                <div>
-                                    <span class="SideMenu-zh">船舶證照</span>
-                                    <span class="SideMenu-en">Vessel Certificates</span>
-                                </div>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="fas fa-map-marked-alt"></i>
-                                <div>
-                                    <span class="SideMenu-zh">航線歷程</span>
-                                    <span class="SideMenu-en">Vessel Schedules</span>
-                                </div>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="fas fa-database"></i>
-                                <div>
-                                    <span class="SideMenu-zh">數據監測</span>
-                                    <span class="SideMenu-en">Data Monitoring</span>
-                                </div>
-                            </a>
-                            <a href="#" class="item">
-                                <i class="fas fa-file-image"></i>
-                                <div>
-                                    <span class="SideMenu-zh">相片</span>
-                                    <span class="SideMenu-en">Photo</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <button class="SideMenu-SwitchBtn align-self-start mt-3" type="button">
-                        <i class="fa-solid fa-circle-arrow-right"></i>
-                        <span class="visually-hidden">關閉</span>
-                    </button>
-                </div>
+                <%- include('./layout/pageAside'); -%>
+
         </div>
     </div>
     <script type="module" src="/main.js"></script>
