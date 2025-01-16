@@ -23,24 +23,23 @@ $navbarHeight: 43px;
 }
 .nav-pills {
     .nav-link {
+        padding: 4px 12px 16px;
         margin-right: 1px;
         border-radius: 0;
         &:hover,
         &.show,
         &.active {
             background: $navHoverBg;
-            box-shadow: $navHoverBorder;
+            box-shadow: none;
         }
     }
-
     &.icon-nav {
         .nav-link {
-            padding: 10px;
+            padding: 8px 0 12px;
             transition: none;
             &:hover,
             &.show,
             &.active {
-                // 覆蓋樣式
                 box-shadow: none;
             }
         }
@@ -66,9 +65,13 @@ $navbarHeight: 43px;
         color: #fff;
         box-shadow: inset 0px 0px 1px 0px #272727;
         margin-bottom: 3px;
-        &:hover {
+        &:hover,
+        &:focus {
             background: $navHoverBg;
             box-shadow: $navHoverBorder;
+        }
+        &::after {
+            transform: rotate(-90deg);
         }
     }
 }
@@ -119,4 +122,8 @@ $navbarHeight: 43px;
 #NavAlarm.dropdown-toggle::after,
 #NavSettingbutton.dropdown-toggle::after {
     display: none;
+}
+
+.nav-item.dropdown .dropdown-submenu > ul.dropdown-menu.show {
+    transform: translate(100px, -42px) !important;
 }

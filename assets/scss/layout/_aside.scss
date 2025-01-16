@@ -1,0 +1,25 @@
+.SideMenu {
+    background: #000;
+    width: 200px;
+    margin-left: 0;
+    display: flex;
+    align-content: flex-start;
+    position: relative;
+    flex-wrap: wrap;
+    background-color: #1a1a1a;
+    border-top: solid #1a1a1a 1px;
+}
+.SideMenu-SwitchBtn {
+    width: 30px;
+    height: 30px;
+    background-color: #666666;
+    color: #fff;
+    padding: 0;
+    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: 0;
+    top: 0;
+    z-index: 1;
+}
