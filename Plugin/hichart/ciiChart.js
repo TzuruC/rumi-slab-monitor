@@ -1,3 +1,7 @@
+const attainedCII = 0;
+const requiredCII = 0;
+const rateNY = ['A', 'B', 'C', 'D', 'E'];
+
 Highcharts.setOptions({
     chart: {
         inverted: true,
@@ -51,11 +55,11 @@ Highcharts.chart('containerCii', {
             // 第一個 Y 軸
             plotBands: [
                 // 共用的區域背景
-                { from: 0, to: 2, color: '#55BF3B' },
-                { from: 2, to: 3, color: '#7BAC31' },
-                { from: 3, to: 7, color: '#9B9D28' },
-                { from: 7, to: 8, color: '#C7881D' },
-                { from: 8, to: 10, color: '#B88400' },
+                { from: 0, to: 2, color: '#57D637' },
+                { from: 2, to: 3, color: '#94BF3B' },
+                { from: 3, to: 7, color: '#C6C918' },
+                { from: 7, to: 8, color: '#C7AA1D' },
+                { from: 8, to: 10, color: '#98560A' },
             ],
             tickPositions: [1.5, 2.5, 5, 7.5, 8.5], // 第一個 Y 軸的標籤位置
             categories: ['A', 'B', 'C', 'D', 'E'], // 第一個 Y 軸的標籤
