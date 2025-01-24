@@ -13,7 +13,8 @@ Highcharts.setOptions({
     },
     yAxis: {
         gridLineWidth: 0,
-        max: 8,
+        max: 10, // 設定Y軸最大值 10
+        // 圖表高度在CSS設置
     },
     plotOptions: {
         series: {
@@ -36,7 +37,7 @@ Highcharts.setOptions({
     },
 });
 
-Highcharts.chart('container1', {
+Highcharts.chart('containerCii', {
     chart: {
         backgroundColor: '#323639',
         marginTop: 40,
@@ -50,35 +51,43 @@ Highcharts.chart('container1', {
             // 第一個 Y 軸
             plotBands: [
                 // 共用的區域背景
-                { from: 0, to: 5.4, color: '#55BF3B' },
-                { from: 5.4, to: 6.12, color: '#7BAC31' },
-                { from: 6.12, to: 6.96, color: '#9B9D28' },
-                { from: 6.96, to: 7.75, color: '#C7881D' },
-                { from: 7.75, to: 8, color: '#B88400' },
+                { from: 0, to: 2, color: '#55BF3B' },
+                { from: 2, to: 3, color: '#7BAC31' },
+                { from: 3, to: 7, color: '#9B9D28' },
+                { from: 7, to: 8, color: '#C7881D' },
+                { from: 8, to: 10, color: '#B88400' },
             ],
-            tickPositions: [0.1, 5.76, 6.54, 7.2, 7.9], // 第一個 Y 軸的標籤位置
+            tickPositions: [1.5, 2.5, 5, 7.5, 8.5], // 第一個 Y 軸的標籤位置
             categories: ['A', 'B', 'C', 'D', 'E'], // 第一個 Y 軸的標籤
             title: null,
             labels: {
                 formatter: function () {
-                    const positionIndex = this.axis.tickPositions.indexOf(this.value);
+                    let positionIndex = this.axis.tickPositions.indexOf(this.value);
+                    if (positionIndex === -1) {
+                        positionIndex = 0;
+                    }
                     return this.axis.categories[positionIndex] || '';
                 },
                 style: {
-                    color: '#FFFFFF', // 第一個 Y 軸的文字顏色
+                    color: '#FFFFFF',
                 },
-                opposite: true,
             },
+            opposite: false,
         },
         {
             // 第二個 Y 軸
+            offset: 0,
             plotBands: null,
-            tickPositions: [5.4, 6.12, 6.96, 7.75], // 第二個 Y 軸的標籤位置，與第一個共享
-            categories: ['5.4', '6.12', '6.96', '7.75'], // 第二個 Y 軸的標籤
+            tickPositions: [0, 1.2, 2.5, 7.5, 8.8, 10], // 第一個 Y 軸的標籤位置
+            categories: ['5', '5.4', '6.12', '6.96', '7.75', '8'], // 第一個 Y 軸的標籤
             title: null,
             labels: {
                 formatter: function () {
-                    return this.value.toFixed(2);
+                    let positionIndex = this.axis.tickPositions.indexOf(this.value);
+                    if (positionIndex === -1) {
+                        positionIndex = 0;
+                    }
+                    return this.axis.categories[positionIndex] || '';
                 },
                 style: {
                     color: '#FFFFFF',
@@ -91,13 +100,11 @@ Highcharts.chart('container1', {
         {
             data: [
                 {
-                    y: 8,
-                    target: 3.2,
+                    y: 100,
+                    target: 2, // 紅色BAR位置，依照百分比
                 },
             ],
         },
     ],
-    tooltip: {
-        // pointFormat: '',
-    },
+    tooltip: {},
 });
