@@ -12,24 +12,232 @@
     <link href="/fontawesome/css/solid.css" rel="stylesheet" />
     <!-- Bootstrap Popper -->
     <script src="Plugin/popper/popper.min.js"></script>
+    <!-- hichart -->
+    <script src="Plugin/hichart/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/bullet.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container-fluid g-0">
             <%- include('./layout/pageHeader'); -%>
-                <%- include('./layout/pageAside'); -%>
-                    <div class="heading d-flex">
-                        <h2></h2>
-                        <div class="page-nav-btn-group">
+                <section class="section-wrapper d-flex justify-content-between aside-open">
+                    <%- include('./layout/pageAside'); -%>
+                        <div id="toggleContentWidth" class="toggle-content">
+                            <div class="page-content text-white p-0">
+                                <!-- 頁面標題與返回按鈕 -->
+                                <div class="heading d-flex justify-content-between align-items-baseline">
+                                    <h2>摯高輪 SLAB JHIHGAO</h2>
+                                    <div class="page-nav-btn-group">
+                                        <div class="btn btn-sm btn-outline-light align-end mb-1">
+                                            <i class="fa-solid fa-reply"></i> Back
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 頁面內容 -->
+                                <div class="row g-0 align-items-stretch">
+                                    <!-- 區塊-簡介 -->
+                                    <div class="col-12 col-md-4 col-lg-3 align-self-stretch">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">船舶簡介 Intro
+                                            </h3>
+                                            <div class="block-content d-flex align-items-center">
+                                                <div class="icon">
+                                                    <img src="assets/Image/shipping.png" alt="ship intro">
+                                                </div>
+                                                <div class="">
+                                                    <ul class="list-unstyled">
+                                                        <li>摯高輪 SLAB JHIHGAO</li>
+                                                        <li>IMO : 9864502</li>
+                                                        <li>DWT : 103614</li>
+                                                        <li>Loop : THX</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 區塊-燃油消耗量 -->
+                                    <div class="col-12 col-lg-3 align-self-stretch">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">燃油消耗量 Fuel Oil Consumption
+                                            </h3>
+                                            <div class="block-content d-flex align-items-center">
+                                                <div class="">
+                                                    <ul class="list-unstyled">
+                                                        <li>HFO : 2971.54</li>
+                                                        <li>LFO : 0</li>
+                                                        <li>MGO : 85.6</li>
+                                                        <li>Transport Work : 2870320208</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 區塊-碳強度指標 -->
+                                    <div class="col-12 col-lg-6 align-self-stretch">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">碳強度指標 Carbon Intensity Indicator
+                                            </h3>
+                                            <div
+                                                class="block-content row g-0 flex-column flex-md-row-reverse justify-content-between">
+                                                <div
+                                                    class="col-12 col-md-6 d-flex justify-content-between align-items-center">
+                                                    <div class="CII-detail ">
+                                                        <ul class="list-unstyled">
+                                                            <li>Attained CII : 32</li>
+                                                            <li>Required CII : 6.51</li>
+                                                            <li>Project Rating next year : A</li>
+                                                            <li>Deterioration : 2043</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="">
+                                                        <div
+                                                            class="CII-rank border border-white m-3 align-self-end flex-shrink-0 ">
+                                                            A
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- hichart -->
+                                                <div class="col-12 col-md-auto CII-chart">
+                                                    <figure class="highcharts-figure">
+                                                        <div id="container1" class="w-100"></div>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0">
+                                    <!-- 區塊-效能分析 -->
+                                    <div class="col-12 col-md-4">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">運行效能分析 Operational Efficiency Analysis
+                                            </h3>
+                                            <div class="block-content-analys row row-cols-2 row-cols-md-3">
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Berthing Hours Ration(%)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        25.16
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Express Average
+                                                        Speed(knat/s)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        14.72
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Full Speed Me Rate(%)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        0.03
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Fuel Consumption Ration(%)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        76.13
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Eletric Motors Fuel Consumption Ration(%)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        19.08
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                    <div class="ana-unit">
+                                                        Boiler Fuel Consumption
+                                                        Ration(%)
+                                                    </div>
+                                                    <div class="ana-value">
+                                                        4.79
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <!-- 區塊-平均速度 -->
+                                    <div class="col-12 col-md-8">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">平均速度 Avg Speed Distribution
+                                            </h3>
+                                            <div class="block-content d-flex align-items-center">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 區塊- -->
+                                    <div class="col-12 col-md-6">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">船舶簡介 Intro
+                                            </h3>
+                                            <div class="block-content d-flex align-items-center">
+                                                <div class="icon">
+                                                    <img src="assets/Image/shipping.png" alt="ship intro">
+                                                </div>
+                                                <div class="">
+                                                    <ul class="list-unstyled">
+                                                        <li>摯高輪 SLAB JHIHGAO</li>
+                                                        <li>IMO : 9864502</li>
+                                                        <li>DWT : 103614</li>
+                                                        <li>Loop : THX</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 區塊- -->
+                                    <div class="col-12 col-md-6">
+                                        <div class="bg-SLAB">
+                                            <h3 class="title">船舶簡介 Intro
+                                            </h3>
+                                            <div class="block-content d-flex align-items-center">
+                                                <div class="icon">
+                                                    <img src="assets/Image/shipping.png" alt="ship intro">
+                                                </div>
+                                                <div class="">
+                                                    <ul class="list-unstyled">
+                                                        <li>摯高輪 SLAB JHIHGAO</li>
+                                                        <li>IMO : 9864502</li>
+                                                        <li>DWT : 103614</li>
+                                                        <li>Loop : THX</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of 頁面內容 -->
+                            </div>
                         </div>
-                    </div>
-
+                </section>
         </div>
     </div>
     <script type="module" src="/main.js"></script>
     <script src="/Plugin/js/asideMenu.js"></script>
+    <script src="/Plugin/hichart/ciiChart.js"></script>
 </body>
 
 </html>

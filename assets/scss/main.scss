@@ -28,9 +28,12 @@ $success: #7952b3;
 
 // 自定義樣式
 @import './utils/fontStyles';
+@import './utils/buttonStyles';
+@import './utils/typography';
 @import './layout/index';
 @import './layout/header';
 @import './layout/aside';
+@import './layout/hichart';
 
 // 自定義全域樣式
 * {
