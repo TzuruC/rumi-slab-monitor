@@ -13,7 +13,7 @@
     <!-- Bootstrap Popper -->
     <script src="Plugin/popper/popper.min.js"></script>
     <!-- hichart -->
-    <script src="Plugin/hichart/highcharts.js"></script>
+    <!-- <script src="Plugin/hichart/highcharts.js"></script> -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/bullet.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
@@ -33,7 +33,7 @@
                         <div id="toggleContentWidth" class="toggle-content">
                             <div class="page-content text-white p-0">
                                 <!-- 頁面標題與返回按鈕 -->
-                                <div class="heading d-flex justify-content-between align-items-baseline">
+                                <div class="px-3 heading d-flex justify-content-between align-items-baseline">
                                     <h2>摯高輪 SLAB JHIHGAO</h2>
                                     <div class="page-nav-btn-group">
                                         <div class="btn btn-sm btn-outline-light align-end mb-1">
@@ -45,7 +45,7 @@
                                 <div class="container-fluid">
                                     <div class="row g-3">
                                         <!-- 區塊-簡介 -->
-                                        <div class="col-12 col-md-6 col-xl-3">
+                                        <div class="col-12 col-lg-6 col-xl-3">
                                             <div class="bg-SLAB">
                                                 <h3 class="title">船舶簡介 Intro
                                                 </h3>
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-碳強度指標 -->
-                                        <div class="col-12 col-xl-6">
+                                        <div class="col-12 col-lg-12 col-xl-6">
                                             <div class="bg-SLAB">
                                                 <h3 class="title">碳強度指標 Carbon Intensity Indicator
                                                 </h3>
@@ -91,11 +91,11 @@
                                                     <div
                                                         class="col-12 col-md-6 d-flex justify-content-between align-items-center">
                                                         <div class="CII-detail ">
-                                                            <ul class="list-unstyled">
+                                                            <ul class="list-unstyled m-0">
                                                                 <li>Attained CII : 32</li>
                                                                 <li>Required CII : 6.51</li>
                                                                 <li>Project Rating next year : A</li>
-                                                                <li>Deterioration : 2043</li>
+                                                                <li class="m-0">Deterioration : 2043</li>
                                                             </ul>
                                                         </div>
                                                         <div class="">
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-效能分析 -->
-                                        <div class="col-12 col-md-4">
+                                        <div class="col-12 col-sm-12 col-md-4">
                                             <div class="bg-SLAB">
                                                 <h3 class="title">運行效能分析 Operational Efficiency Analysis
                                                 </h3>
@@ -180,35 +180,73 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-平均速度 -->
-                                        <div class="col-12 col-md-8">
-                                            <div class="bg-SLAB">
+                                        <div class="col-12 col-sm-12 col-md-8">
+                                            <div class="bg-SLAB d-flex flex-column justify-content-between">
                                                 <h3 class="title">平均速度 Avg Speed Distribution
                                                 </h3>
-                                                <div class="block-content d-flex align-items-center">
-                                                    <figure class="highchartAvgSpeed-figure">
-                                                        <div id="containerAvgSpeed"></div>
+                                                <div class="block-content d-flex align-items-end overflow-auto">
+                                                    <figure class="highchartAvgSpeed-figure ">
+                                                        <div id="containerAvgSpeed" class=" "></div>
                                                     </figure>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- 區塊- -->
-                                        <div class="col-12 col-md-6">
+                                        <!-- 區塊-日誌 -->
+                                        <div class="col-12 col-md-8">
                                             <div class="bg-SLAB">
                                                 <h3 class="title">航行日誌 Voyage Report
                                                 </h3>
-                                                <div class="block-content d-flex align-items-center">
-                                                    123
+                                                <div class="block-content d-flex align-items-start">
+                                                    <table class="table table-report table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">Date</th>
+                                                                <th scope="col" class="text-center">Port of Departure
+                                                                </th>
+                                                                <th scope="col" class="text-center">Port of Destination
+                                                                </th>
+                                                                <th scope="col" class="text-center">Distance Sailed</th>
+                                                                <th scope="col" class="text-center">Fuel Oil Consumption
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">2024-12-18 ~ 2024-12-17</th>
+                                                                <td class="text-center">CNSHK</td>
+                                                                <td class="text-center">KRINC</td>
+                                                                <td class="text-center">313 nm</td>
+                                                                <td class="text-center">45.9 mt</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2024-12-18 ~ 2024-12-17</th>
+                                                                <td class="text-center">HKHKG</td>
+                                                                <td class="text-center">CNSHK</td>
+                                                                <td class="text-center">199 nm</td>
+                                                                <td class="text-center">32.7 mt</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2024-12-18 ~ 2024-12-17</th>
+                                                                <td class="text-center">VNCLI</td>
+                                                                <td class="text-center">HKHKG</td>
+                                                                <td class="text-center">761 nm</td>
+                                                                <td class="text-center">84.1 mt</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- 區塊- -->
-                                        <div class="col-12 col-md-6">
-                                            <div class="bg-SLAB">
+                                        <!-- 區塊-散點圖 -->
+                                        <div class="col-12 col-md-4">
+                                            <div class="bg-SLAB d-flex flex-column justify-content-between">
                                                 <h3 class="title">散點圖表 Scatter with trend line
                                                 </h3>
-                                                <div class="block-content d-flex align-items-center">
-                                                    散點圖表 Scatter with trend line
+                                                <div class="block-content d-flex align-items-end overflow-auto">
+                                                    <figure class="highchartScatter-figure">
+                                                        <div id="containerScatter" class=""></div>
+                                                    </figure>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,6 +262,7 @@
     <script src="/Plugin/js/asideMenu.js"></script>
     <script src="/Plugin/hichart/ciiChart.js"></script>
     <script src="/Plugin/hichart/avgSpeedChart.js"></script>
+    <script src="/Plugin/hichart/scatterChart.js"></script>
 </body>
 
 </html>

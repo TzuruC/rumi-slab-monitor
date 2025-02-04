@@ -11,12 +11,13 @@
     height: 100%;
     .title {
         margin: 0;
-        padding: 16px 20px;
+        padding: 12px 12px;
         border-bottom: 1px solid #000;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
     }
     .block-content {
+        height: calc(100% - 50px);
         padding: 20px 20px 12px;
         .icon img {
             width: 100px;
@@ -28,6 +29,7 @@
     }
     .block-content-analys {
         width: 100%;
+        height: calc(100% - 44px);
         margin: 0;
         padding: 0;
         text-align: center;
@@ -47,6 +49,10 @@
     text-align: center;
     border-radius: 4px;
     font-size: 96px;
+    @include smScreen {
+        padding: 0 20px;
+        font-size: 48px;
+    }
     @include pad {
         padding: 0 20px;
         font-size: 48px;

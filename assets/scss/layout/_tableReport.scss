@@ -1,0 +1,12 @@
+.table.table-report {
+    --bs-table-bg: transparent !important;
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    td,
+    th {
+        color: white;
+        font-size: 14px;
+    }
+}

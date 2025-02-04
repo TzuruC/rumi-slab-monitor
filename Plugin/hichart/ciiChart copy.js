@@ -1,4 +1,8 @@
-const chartOptions = {
+const attainedCII = 0;
+const requiredCII = 0;
+const rateNY = ['A', 'B', 'C', 'D', 'E'];
+
+Highcharts.setOptions({
     chart: {
         inverted: true,
         marginLeft: 0,
@@ -13,15 +17,13 @@ const chartOptions = {
     },
     yAxis: {
         gridLineWidth: 0,
-        max: 10, // 最大值
-        // softMax: 1,
-        startOnTick: false,
-        endOnTick: false,
+        max: 10, // 設定Y軸最大值 10
+        // 圖表高度在CSS設置
     },
     plotOptions: {
         series: {
             pointPadding: 0.25,
-            borderHeight: 10,
+            borderHight: 10,
             borderWidth: 0,
             color: 'transparent',
             targetOptions: {
@@ -37,17 +39,16 @@ const chartOptions = {
     exporting: {
         enabled: false,
     },
-    tooltip: {
-        enabled: false, // 隐藏tooltip
-    },
-};
+});
 
 Highcharts.chart('containerCii', {
-    ...chartOptions, // 只影響這個圖表
     chart: {
-        ...chartOptions.chart,
         backgroundColor: '#323639',
         marginTop: 40,
+    },
+    title: {
+        text: '',
+        color: '#fff',
     },
     yAxis: [
         {
@@ -55,14 +56,13 @@ Highcharts.chart('containerCii', {
             plotBands: [
                 // 共用的區域背景
                 { from: 0, to: 2, color: '#57D637' },
-                { from: 2, to: 4, color: '#94BF3B' },
-                { from: 4, to: 6, color: '#C6C918' },
-                { from: 6, to: 8, color: '#C7AA1D' },
-                { from: 8, to: 9, color: '#98560A' },
+                { from: 2, to: 3, color: '#94BF3B' },
+                { from: 3, to: 7, color: '#C6C918' },
+                { from: 7, to: 8, color: '#C7AA1D' },
+                { from: 8, to: 10, color: '#98560A' },
             ],
-            tickPositions: [1, 2, 5, 7, 9], // 第一個 Y 軸的標籤位置
+            tickPositions: [1.5, 2.5, 5, 7.5, 8.5], // 第一個 Y 軸的標籤位置
             categories: ['A', 'B', 'C', 'D', 'E'], // 第一個 Y 軸的標籤
-            gridLineWidth: 0,
             title: null,
             labels: {
                 formatter: function () {
@@ -82,9 +82,8 @@ Highcharts.chart('containerCii', {
             // 第二個 Y 軸
             offset: 0,
             plotBands: null,
-            tickPositions: [2, 4, 6, 8], // 第二個 Y 軸的標籤位置
-            categories: ['5.4', '6.12', '6.96', '7.75'], // 第二個 Y 軸的標籤
-            gridLineWidth: 0,
+            tickPositions: [0, 1.2, 2.5, 7.5, 8.8, 10], // 第一個 Y 軸的標籤位置
+            categories: ['5', '5.4', '6.12', '6.96', '7.75', '8'], // 第一個 Y 軸的標籤
             title: null,
             labels: {
                 formatter: function () {
@@ -105,10 +104,11 @@ Highcharts.chart('containerCii', {
         {
             data: [
                 {
-                    // y: 100,
-                    target: 5, // 紅色BAR位置
+                    y: 100,
+                    target: 2, // 紅色BAR位置，依照百分比
                 },
             ],
         },
     ],
+    tooltip: {},
 });
