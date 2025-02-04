@@ -3,6 +3,11 @@
         @content;
     }
 }
+@mixin bigPadH {
+    @media (max-width: 1480px) {
+        @content;
+    }
+}
 @mixin bigPad {
     @media (max-width: 988px) {
         @content;
@@ -10,6 +15,11 @@
 }
 @mixin pad {
     @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin mobileH {
+    @media (max-width: 700px) {
         @content;
     }
 }
@@ -21,3 +31,4 @@
 // bigPad-988px
 // pad-768px
 // mobile-375px
+// mobileH-575px

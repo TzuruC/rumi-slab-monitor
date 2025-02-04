@@ -62,7 +62,7 @@ Highcharts.chart('containerAvgSpeed', {
     yAxis: {
         min: 0,
         title: {
-            text: 'AVG_SPEED<br>平均航速',
+            text: '',
             style: {
                 color: '#fff',
                 fontSize: '16px',

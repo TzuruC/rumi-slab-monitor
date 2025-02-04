@@ -1,7 +1,35 @@
-.highchartCii-figure .highcharts-background {
-    background: #323639;
-}
-#containerCii {
-    height: 120px;
-    background: #323639;
+// .highchartCii-figure .highcharts-background {
+//     background: #323639;
+// }
+// #containerCii {
+//     height: 120px;
+//     background: #323639;
+// }
+.CII-content {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    @include bigPadH {
+        flex-direction: column;
+    }
+    @include bigPad {
+        flex-direction: column;
+    }
+    .CII-info {
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        @include bigPadH {
+            width: 100%;
+        }
+        @include mobileH {
+            flex-direction: column;
+        }
+    }
+    .CII-chart {
+        width: 40%;
+        @include bigPadH {
+            width: 100%;
+        }
+    }
 }

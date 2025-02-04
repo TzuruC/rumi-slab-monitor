@@ -28,7 +28,7 @@
     <div class="wrapper">
         <div class="container-fluid g-0">
             <%- include('./layout/pageHeader'); -%>
-                <section class="section-wrapper d-flex justify-content-between aside-open">
+                <section class="section-wrapper d-flex justify-content-between">
                     <%- include('./layout/pageAside'); -%>
                         <div id="toggleContentWidth" class="toggle-content">
                             <div class="page-content text-white p-0">
@@ -47,7 +47,7 @@
                                         <!-- 區塊-簡介 -->
                                         <div class="col-12 col-lg-6 col-xl-3">
                                             <div class="bg-SLAB">
-                                                <h3 class="title">船舶簡介 Intro
+                                                <h3 class="title">船舶簡介 <span class="en">Intro</span>
                                                 </h3>
                                                 <div class="block-content d-flex align-items-center">
                                                     <div class="icon">
@@ -67,7 +67,7 @@
                                         <!-- 區塊-燃油消耗量 -->
                                         <div class="col-12 col-lg-6 col-xl-3">
                                             <div class="bg-SLAB">
-                                                <h3 class="title">燃油消耗量 Fuel Oil Consumption
+                                                <h3 class="title">燃油消耗量 <span class="en">Fuel Consumption</span>
                                                 </h3>
                                                 <div class="block-content d-flex align-items-center">
                                                     <div class="">
@@ -81,16 +81,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- 區塊-碳強度指標 -->
+                                        <!-- 區塊-CII碳強度指標 -->
                                         <div class="col-12 col-lg-12 col-xl-6">
                                             <div class="bg-SLAB">
-                                                <h3 class="title">碳強度指標 Carbon Intensity Indicator
+                                                <h3 class="title">碳強度指標 <span class="en">Carbon Intensity
+                                                        Indicator</span>
                                                 </h3>
-                                                <div
-                                                    class="block-content row g-0 flex-column flex-md-row-reverse justify-content-between">
-                                                    <div
-                                                        class="col-12 col-md-6 d-flex justify-content-between align-items-center">
-                                                        <div class="CII-detail ">
+                                                <div class="block-content CII-content d-flex">
+                                                    <div class="CII-info d-flex">
+                                                        <div class="CII-detail">
                                                             <ul class="list-unstyled m-0">
                                                                 <li>Attained CII : 32</li>
                                                                 <li>Required CII : 6.51</li>
@@ -106,7 +105,7 @@
                                                         </div>
                                                     </div>
                                                     <!-- hichart -->
-                                                    <div class="col-12 col-md-4 col-md-auto CII-chart">
+                                                    <div class="CII-chart">
                                                         <figure class="highchartCii-figure">
                                                             <div id="containerCii" class=""></div>
                                                         </figure>
@@ -115,13 +114,13 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-效能分析 -->
-                                        <div class="col-12 col-sm-12 col-md-4">
+                                        <div class="col-12 col-sm-12 col-lg-6 col-xl-4 ">
                                             <div class="bg-SLAB">
-                                                <h3 class="title">運行效能分析 Operational Efficiency Analysis
+                                                <h3 class="title">運行效能分析 <span class="en">Efficiency Analysis</span>
                                                 </h3>
                                                 <div class="block-content-analys row row-cols-2 row-cols-md-3">
                                                     <div
-                                                        class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                        class="col-6 col-lg-4 border border-dark d-flex flex-column justify-content-between">
                                                         <div class="ana-unit">
                                                             Berthing Hours Ration(%)
                                                         </div>
@@ -130,7 +129,7 @@
                                                         </div>
                                                     </div>
                                                     <div
-                                                        class="col-6 col-md-4 border border-dark d-flex flex-column justify-content-between">
+                                                        class="col-6 col-lg-4 border border-dark d-flex flex-column justify-content-between">
                                                         <div class="ana-unit">
                                                             Express Average
                                                             Speed(knat/s)
@@ -180,9 +179,9 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-平均速度 -->
-                                        <div class="col-12 col-sm-12 col-md-8">
+                                        <div class="col-12 col-sm-12 col-lg-6 col-xl-8 ">
                                             <div class="bg-SLAB d-flex flex-column justify-content-between">
-                                                <h3 class="title">平均速度 Avg Speed Distribution
+                                                <h3 class="title">平均航速 <span class="en">Avg Speed Distribution</span>
                                                 </h3>
                                                 <div class="block-content d-flex align-items-end overflow-auto">
                                                     <figure class="highchartAvgSpeed-figure ">
@@ -193,11 +192,11 @@
                                         </div>
 
                                         <!-- 區塊-日誌 -->
-                                        <div class="col-12 col-md-8">
+                                        <div class="col-12 col-xl-7">
                                             <div class="bg-SLAB">
-                                                <h3 class="title">航行日誌 Voyage Report
+                                                <h3 class="title">航行日誌 <span class="en">Voyage Report</span>
                                                 </h3>
-                                                <div class="block-content d-flex align-items-start">
+                                                <div class="block-content d-flex align-items-start overflow-auto">
                                                     <table class="table table-report table-hover">
                                                         <thead>
                                                             <tr>
@@ -239,9 +238,9 @@
                                             </div>
                                         </div>
                                         <!-- 區塊-散點圖 -->
-                                        <div class="col-12 col-md-4">
+                                        <div class="col-12 col-xl-5">
                                             <div class="bg-SLAB d-flex flex-column justify-content-between">
-                                                <h3 class="title">散點圖表 Scatter with trend line
+                                                <h3 class="title">散點圖分析 <span class="en">Scatter with trend line</span>
                                                 </h3>
                                                 <div class="block-content d-flex align-items-end overflow-auto">
                                                     <figure class="highchartScatter-figure">

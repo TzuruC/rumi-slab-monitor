@@ -2,18 +2,17 @@ Highcharts.chart('containerScatter', {
     chart: {
         type: 'line', // 設定為折線圖
         backgroundColor: '#323639',
+        height: 300,
     },
     credits: {
         enabled: false, // 隱藏Highcharts連結
     },
-    xAxis: {
-        title: {
-            text: 'X 軸標題',
-            style: {
-                color: '#FFFFFF',
-                fontWeight: 'bold',
-            },
+    navigation: {
+        buttonOptions: {
+            enabled: false,
         },
+    },
+    xAxis: {
         labels: {
             style: {
                 color: '#FFFFFF',
