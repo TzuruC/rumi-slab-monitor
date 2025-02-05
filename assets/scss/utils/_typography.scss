@@ -48,17 +48,3 @@
         }
     }
 }
-.CII-rank {
-    padding: 0 36px;
-    text-align: center;
-    border-radius: 4px;
-    font-size: 96px;
-    @include smScreen {
-        padding: 0 20px;
-        font-size: 48px;
-    }
-    @include pad {
-        padding: 0 20px;
-        font-size: 48px;
-    }
-}

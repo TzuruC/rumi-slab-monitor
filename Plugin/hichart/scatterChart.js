@@ -9,7 +9,7 @@ Highcharts.chart('containerScatter', {
     },
     navigation: {
         buttonOptions: {
-            enabled: false,
+            enabled: false, // 隱藏hamburger
         },
     },
     xAxis: {
@@ -19,10 +19,15 @@ Highcharts.chart('containerScatter', {
                 fontWeight: 'bold',
             },
         },
+        crosshair: true,
+        gridLineWidth: 1,
+        gridLineColor: '#cccccc',
+        gridLineDashStyle: 'Dot',
     },
     yAxis: {
+        min: 0,
         title: {
-            text: 'Y 軸標題',
+            text: '', //Y 軸標題
             style: {
                 color: '#FFFFFF',
                 fontWeight: 'bold',
@@ -34,11 +39,23 @@ Highcharts.chart('containerScatter', {
                 fontWeight: 'bold',
             },
         },
+        plotLines: [
+            {
+                value: 0, // 設置水平線的位置
+                color: '#FFFFFF', // 設置顏色為白色
+                width: 1, // 設置線的寬度
+                zIndex: 2,
+            },
+        ],
+        gridLineWidth: 1,
+        gridLineColor: '#cccccc',
+        gridLineDashStyle: 'Dot',
     },
     series: [
         {
             name: '折線數據',
             data: [2, 4, 1, 5, 3], // 折線圖的數據
+            color: '#7FB8E7',
             marker: {
                 enabled: true, // 啟用節點
             },
@@ -53,6 +70,7 @@ Highcharts.chart('containerScatter', {
                 [3, 4],
                 [4, 5],
             ], // 散點圖的數據
+            color: '#91E092',
             marker: {
                 radius: 5, // 調整散點的大小
             },

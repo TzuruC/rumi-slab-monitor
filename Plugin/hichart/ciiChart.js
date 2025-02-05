@@ -1,5 +1,38 @@
-let indexofY = 0;
-const chartOptions = {
+const ciiRankValue = document.querySelector('.CII-rank');
+
+const ciiInsertData = {
+    ciiRangeLabelArray: ['', '5.4', '6.12', '6.96', '7.75', ''], // 索引值 0, -1 處需保留空值； 1, 2, 3, 4 代入運算出的級距值
+    ciiCurrentValue: 5.87, // 船舶的CII值(最大值10)紅色BAR位置
+};
+
+// 動態改變矩形框中的RANK文字
+let ciiRank = '';
+
+if (ciiInsertData.ciiCurrentValue < ciiInsertData.ciiRangeLabelArray[1]) {
+    ciiRank = 'A';
+} else if (
+    ciiInsertData.ciiCurrentValue > ciiInsertData.ciiRangeLabelArray[1] &&
+    ciiInsertData.ciiCurrentValue < ciiInsertData.ciiRangeLabelArray[2]
+) {
+    ciiRank = 'B';
+} else if (
+    ciiInsertData.ciiCurrentValue > ciiInsertData.ciiRangeLabelArray[2] &&
+    ciiInsertData.ciiCurrentValue < ciiInsertData.ciiRangeLabelArray[3]
+) {
+    ciiRank = 'C';
+} else if (
+    ciiInsertData.ciiCurrentValue > ciiInsertData.ciiRangeLabelArray[3] &&
+    ciiInsertData.ciiCurrentValue < ciiInsertData.ciiRangeLabelArray[4]
+) {
+    ciiRank = 'D';
+} else {
+    ciiRank = 'E';
+}
+
+ciiRankValue.textContent = ciiRank;
+
+// 另行宣告避免 hichart 之間衝突
+const ciiChartOptions = {
     chart: {
         inverted: true,
         marginLeft: 0,
@@ -17,7 +50,6 @@ const chartOptions = {
     yAxis: {
         gridLineWidth: 0,
         max: 10, // 最大值
-        // softMax: 1,
         startOnTick: false,
         endOnTick: false,
     },
@@ -46,9 +78,9 @@ const chartOptions = {
 };
 
 Highcharts.chart('containerCii', {
-    ...chartOptions, // 只影響這個圖表
+    ...ciiChartOptions,
     chart: {
-        ...chartOptions.chart,
+        ...ciiChartOptions.chart,
         backgroundColor: '#323639',
         marginTop: 40,
     },
@@ -62,7 +94,7 @@ Highcharts.chart('containerCii', {
                 { from: 6, to: 8, color: '#C7AA1D' },
                 { from: 8, to: 10, color: '#98560A' },
             ],
-            tickPositions: [0.5, 2.9, 5, 7, 9.5], // B=3 會出問題
+            tickPositions: [0.5, 2.9, 5, 7, 9.5], // 請不要更動這些數值，可能導致標籤消失
             categories: ['A', 'B', 'C', 'D', 'E'],
             gridLineWidth: 0,
             title: null,
@@ -82,8 +114,8 @@ Highcharts.chart('containerCii', {
             // 第二個 Y 軸
             offset: 0,
             plotBands: null,
-            tickPositions: [0, 2.1, 4.1, 6, 8, 10], // 請不要移動這些位置
-            categories: ['', '5.4', '6.12', '6.96', '7.75', ''],
+            tickPositions: [0, 2.1, 4.1, 6, 8, 10], // 請不要更動這些數值，可能導致標籤消失
+            categories: ciiInsertData.ciiRangeLabelArray,
             gridLineWidth: 0,
             title: null,
             labels: {
@@ -103,7 +135,7 @@ Highcharts.chart('containerCii', {
         {
             data: [
                 {
-                    target: 5, // 紅色BAR位置
+                    target: ciiInsertData.ciiCurrentValue,
                 },
             ],
         },

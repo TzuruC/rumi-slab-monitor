@@ -8,6 +8,11 @@
         @content;
     }
 }
+@mixin bs-lg {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
 @mixin bigPad {
     @media (max-width: 988px) {
         @content;

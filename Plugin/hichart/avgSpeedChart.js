@@ -140,7 +140,7 @@ Highcharts.chart('containerAvgSpeed', {
                     fontSize: '14px',
                 },
             },
-            pointWidth: 30,
+            pointWidth: 25,
         },
     ],
 });

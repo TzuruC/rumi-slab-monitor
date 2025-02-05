@@ -25,9 +25,27 @@
         @include mobileH {
             flex-direction: column;
         }
+        .CII-rank {
+            padding: 0 36px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 96px;
+            @include smScreen {
+                padding: 0 20px;
+                font-size: 48px;
+            }
+            @include bs-lg {
+                padding: 0 36px;
+                font-size: 96px;
+            }
+            @include pad {
+                padding: 0 20px;
+                font-size: 48px;
+            }
+        }
     }
     .CII-chart {
-        width: 40%;
+        width: 50%;
         @include bigPadH {
             width: 100%;
         }
