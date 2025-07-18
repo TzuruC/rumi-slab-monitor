@@ -88,11 +88,11 @@ Highcharts.chart('containerCii', {
         {
             // 第一個 Y 軸
             plotBands: [
-                { from: 0, to: 2, color: '#57D637' },
-                { from: 2, to: 4, color: '#94BF3B' },
-                { from: 4, to: 6, color: '#C6C918' },
-                { from: 6, to: 8, color: '#C7AA1D' },
-                { from: 8, to: 10, color: '#98560A' },
+                { from: 0, to: 2, color: '#149E5B' },
+                { from: 2, to: 4, color: '#97C257' },
+                { from: 4, to: 6, color: '#E3B731' },
+                { from: 6, to: 8, color: '#D66D2E' },
+                { from: 8, to: 10, color: '#AE2627' },
             ],
             tickPositions: [0.5, 2.9, 5, 7, 9.5], // 請不要更動這些數值，可能導致標籤消失
             categories: ['A', 'B', 'C', 'D', 'E'],

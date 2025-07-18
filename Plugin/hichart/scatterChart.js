@@ -51,6 +51,9 @@ Highcharts.chart('containerScatter', {
         gridLineColor: '#cccccc',
         gridLineDashStyle: 'Dot',
     },
+    legend: {
+        enabled: false,
+    },
     series: [
         {
             name: '折線數據',
