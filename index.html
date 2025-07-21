@@ -7,13 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>專案名稱-索引頁</title>
     <!-- Font Awesome Solid + Brands -->
-    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
-    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
-    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link href="/Plugin/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/Plugin/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/Plugin/fontawesome/css/solid.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <link href="/Plugin/bootstrap-5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Swiepr -->
-    <link rel="stylesheet" href="Plugin/swiper/swiper-bundle.min.css" />
-    <!-- Bootstrap Popper -->
-    <script src="Plugin/popper/popper.min.js"></script>
+    <link rel="stylesheet" href="/Plugin/swiper/swiper-bundle.min.css" />
+    <!-- Cutomized -->
+    <link rel="stylesheet" href="src/assets/scss/main.scss">
 </head>
 
 <body>
@@ -85,13 +87,65 @@
         <!-- Slider main container -->
         <table class="w-100">
             <tr>
-                <td><%- include('./layout/dev/indexFrontPages'); -%></td>
+                <td>
+                    <table class="table table-light table-bordered fs-14 text-start">
+                        <tr class="table-primary fs-14">
+                            <th>檔案名稱 (點兩下複製)</th>
+                            <th>頁面名稱 ( title )</th>
+                            <th>簡介 / 功能</th>
+                            <th>使用套件</th>
+                            <th>備註</th>
+                        </tr>
+                        <tr>
+                            <td class="copyText">index.html</td>
+                            <td><a href="index.html" class="text-decoration-none">專案-索引頁</a></td>
+                            <td class="text-start">所有頁面索引</td>
+                            <td>Swiper</td>
+                            <td>- -</td>
+                        </tr>
+                        <tr>
+                            <td class="copyText">Data-Panel.html</td>
+                            <td><a href="Data-Panel.html" class="text-decoration-none">主頁面</a></td>
+                            <td class="text-start">圖表介面一覽</td>
+                            <td>Hichart</td>
+                            <td>棄用</td>
+                        </tr>
+                        <tr class="table-primary fs-14">
+                            <td colspan="5" class="fw-bold">CII 介面改版</td>
+                        </tr>
+                        <tr>
+                            <td class="copyText">CII-Overview.html</td>
+                            <td><a href="CII-Overview.html" class="text-decoration-none">CII資訊總覽</a></td>
+                            <td class="text-start">CII2025新改版</td>
+                            <td>Hicharts, Datatables</td>
+                            <td><a href="https://www.figma.com/design/ft0ORDzbGXUZTmxHqSZFUt/%E5%85%A7%E9%83%A8-CII%E5%8A%9F%E8%83%BD%E6%8E%92%E7%89%88?node-id=163-7&t=GD7dUEPABAskpwkg-4"
+                                    target="_blank" rel="">Layout 參考</a></td>
+                        </tr>
+                        <tr class="table-primary fs-14">
+                            <td colspan="5" class="fw-bold">Monitor 監控畫面</td>
+                        </tr>
+                        <tr>
+                            <td class="copyText">SLAB-Monitor.html</td>
+                            <td><a href="SLAB-Monitor.html" class="text-decoration-none">白天介面</a></td>
+                            <td class="text-start">自由分層監控介面</td>
+                            <td><a href="https://codepen.io/Tzuru-Chen/pen/xbwxMzZ"
+                                    target="_blank">mjsarfatti/nestedSortable</a></td>
+                            <td>- -</td>
+                        </tr>
+                        <tr class="table-primary fs-14">
+                            <td colspan="5"></td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
         </table>
     </div>
 
     <script type="module" src="/main.js"></script>
-    <script src="Plugin/swiper/swiper-bundle.min.js"></script>
+    <script src="/Plugin/swiper/swiper-bundle.min.js"></script>
+    <!-- Bootstrap bundle -->
+    <script src="/Plugin/bootstrap-5.1.1/dist/js/bootstrap.bundle.js"></script>
+
     <script>
         // swiper 參數
         var swiper = new Swiper('.mySwiper', {
