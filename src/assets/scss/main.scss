@@ -7,7 +7,6 @@ $border-radius: 0.4rem;
 $success: #7952b3;
 
 // bs5 樣式
-// @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap/scss/functions'; // Required
 @import 'bootstrap/scss/variables'; // Required
 @import 'bootstrap/scss/mixins'; // Required
@@ -22,9 +21,11 @@ $success: #7952b3;
 // @import 'bootstrap/scss/utilities';
 
 // 自定義 bs5 樣式
+@import './utils/themeColors';
 @import './utils/variables';
 @import './utils/variables-dark';
 @import './utils/viewport';
+@import 'bootstrap/scss/bootstrap';
 
 // 自定義樣式
 @import './utils/fontStyles';
@@ -36,14 +37,16 @@ $success: #7952b3;
 @import './layout/hichartCii';
 @import './layout/hichartAvgSpeed';
 @import './layout/tableReport';
+@import './pages/ciiOverview';
 
 // 自定義全域樣式
 * {
     box-sizing: border-box;
 }
 body {
-    font-family: '微軟正黑體', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
-        'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+    font-family: 'Noto Sans TC', '微軟正黑體', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+        'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji' !important;
 }
 img {
     vertical-align: middle;

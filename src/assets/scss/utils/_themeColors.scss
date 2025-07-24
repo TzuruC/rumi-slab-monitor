@@ -1,0 +1,14 @@
+$gray-1: #a2a2a2;
+$gray-2: #4e4e4e;
+$gray-3: #393939;
+$dark-1: #292929;
+
+$theme-colors: map-merge(
+    $theme-colors,
+    (
+        'gray-1': $gray-1,
+        'gray-2': $gray-2,
+        'gray-3': $gray-3,
+        'dark-1': $dark-1,
+    )
+);
