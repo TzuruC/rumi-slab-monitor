@@ -1,92 +1,5 @@
-function generateChart(dataset) {
-    Highcharts.chart('CIIOverviewChart12', {
-        chart: {
-            backgroundColor: '#292929',
-        },
-        title: null,
-        xAxis: {
-            title: {
-                text: '航速 (knots)',
-                style: {
-                    color: '#FFFFFF', // Y軸標題顏色
-                },
-            },
-            minPadding: 0.1,
-            maxPadding: 0.1,
-            lineColor: '#FFFFFF',
-        },
-        yAxis: {
-            title: {
-                text: '燃油消耗量 (mt/h)',
-                style: {
-                    color: '#FFFFFF', // Y軸標題顏色
-                },
-            },
-            gridLineColor: '#FFFFFF', // Y軸延伸線顏色
-            lineWidth: 1,
-            lineColor: '#FFFFFF', // Y軸顏色
-            tickColor: '#FFFFFF', // Y軸刻度顏色
-            labels: {
-                style: {
-                    color: '#FFFFFF', // Y軸標籤顏色
-                },
-            },
-        },
-        series: [
-            {
-                type: 'scatter',
-                name: 'Observations',
-                data: dataset,
-                marker: {
-                    radius: 4,
-                },
-            },
-            {
-                type: 'spline',
-                name: '1st degree regression line',
-                data: generateLineData(linearRegression(dataset, 1), -3, 5, 10),
-                marker: {
-                    enabled: false,
-                },
-                states: {
-                    hover: {
-                        lineWidth: 0,
-                    },
-                },
-                enableMouseTracking: false,
-            },
-            {
-                type: 'spline',
-                name: '2nd degree regression line',
-                data: generateLineData(linearRegression(dataset, 2), -3, 5, 10),
-                marker: {
-                    enabled: false,
-                },
-                states: {
-                    hover: {
-                        lineWidth: 0,
-                    },
-                },
-                enableMouseTracking: false,
-            },
-            {
-                type: 'spline',
-                name: '3rd degree regression line',
-                data: generateLineData(linearRegression(dataset, 3), -3, 5, 10),
-                marker: {
-                    enabled: false,
-                },
-                states: {
-                    hover: {
-                        lineWidth: 0,
-                    },
-                },
-                enableMouseTracking: false,
-            },
-        ],
-    });
-}
-const dataset = [
+// 折線圖資料 - CO₂排放量(黃色)
+let CIIOverviewChart12_chart_Series_data01 = [
     [4.648, 2.013],
     [4.583, 1.354],
     [-2.548, 1.066],
@@ -189,13 +102,86 @@ const dataset = [
     [2.736, 0.766],
 ];
 
+function generateChart(CIIOverviewChart12_chart_Series_data01) {
+    Highcharts.chart('CIIOverviewChart12', {
+        chart: {
+            backgroundColor: '#292929',
+        },
+        title: null,
+        xAxis: {
+            title: {
+                text: '航速 (knots)',
+                style: {
+                    color: '#FFFFFF', // Y軸標題顏色
+                },
+            },
+            minPadding: 0.1,
+            maxPadding: 0.1,
+            lineColor: '#FFFFFF',
+        },
+        yAxis: {
+            title: {
+                text: '燃油消耗量 (mt/h)',
+                style: {
+                    color: '#FFFFFF', // Y軸標題顏色
+                },
+            },
+            gridLineColor: '#FFFFFF', // Y軸延伸線顏色
+            lineWidth: 1,
+            lineColor: '#FFFFFF', // Y軸顏色
+            tickColor: '#FFFFFF', // Y軸刻度顏色
+            labels: {
+                style: {
+                    color: '#FFFFFF', // Y軸標籤顏色
+                },
+            },
+        },
+        legend: {
+            enabled: false,
+        },
+        // legend: {
+        //     align: 'center',
+        //     verticalAlign: 'top',
+        //     itemStyle: {
+        //         color: '#FFFFFF',
+        //     },
+        // },
+        series: [
+            {
+                type: 'scatter',
+                name: '主機消耗',
+                data: CIIOverviewChart12_chart_Series_data01,
+                marker: {
+                    radius: 4,
+                },
+                color: '#00AAFF',
+            },
+            {
+                type: 'spline',
+                name: '二次回歸線',
+                data: generateLineData(linearRegression(CIIOverviewChart12_chart_Series_data01, 2), -3, 5, 10),
+                marker: {
+                    enabled: false,
+                },
+                states: {
+                    hover: {
+                        lineWidth: 0,
+                    },
+                },
+                enableMouseTracking: false,
+                color: '#FFE100',
+            },
+        ],
+    });
+}
+
 // Matrix calculations to calculate the variables for least square regression.
 // Utilizing the mathjs library for matrix operations
 
-function linearRegression(dataset, nDegrees) {
+function linearRegression(CIIOverviewChart12_chart_Series_data01, nDegrees) {
     // Split the dataset into x and y
-    const x = dataset.map((val) => val[0]);
-    const y = dataset.map((val) => val[1]);
+    const x = CIIOverviewChart12_chart_Series_data01.map((val) => val[0]);
+    const y = CIIOverviewChart12_chart_Series_data01.map((val) => val[1]);
     const X = [];
 
     // Create n-dimensional X-matrix
@@ -226,4 +212,4 @@ function generateLineData(constants, start, end, resolution) {
     return outData;
 }
 
-generateChart(dataset);
+generateChart(CIIOverviewChart12_chart_Series_data01);

@@ -1,3 +1,23 @@
+// 折線圖資料 - CII實際值(黃色)
+let CIIOverviewChart14_chart_Series_data01 = [7.5, 8, 9, 7, 9.5, 9, 7.5, 10, 8.5, 17, 17.2, 18];
+// 折線圖資料 - 運輸量(綠色)
+let CIIOverviewChart14_chart_Series_data02 = [
+    7500, 8200, 9000, 7000, 9500, 10000, 14300, 14400, 14500, 17000, 17800, 18000,
+];
+// 長條圖資料 - 運輸量總和(水藍色)
+let CIIOverviewChart14_chart_Series_data03 = [
+    4000, 5100, 6800, 7500, 9000, 12300, 12010, 12100, 12500, 17500, 18000, 22000,
+];
+
+// 找出最大值，以定義Y軸高度
+const CIIOverviewChart14allData = [
+    ...CIIOverviewChart14_chart_Series_data02,
+    ...CIIOverviewChart14_chart_Series_data03,
+];
+const CIIOverviewChart14maxVal = Math.max(...CIIOverviewChart14allData);
+const CIIOverviewChart14maxYLeft = Math.ceil(CIIOverviewChart14maxVal * 1.05);
+const CIIOverviewChart14maxYRight = Math.ceil(Math.max(...CIIOverviewChart14_chart_Series_data01) * 1.25);
+
 Highcharts.chart('CIIOverviewChart14', {
     chart: {
         zooming: {
@@ -6,40 +26,60 @@ Highcharts.chart('CIIOverviewChart14', {
         backgroundColor: '#292929',
     },
     title: null,
-    credits: {
-        text:
-            'Source: ' +
-            '<a href="https://www.yr.no/nb/historikk/graf/5-97251/Norge/Finnmark/Karasjok/Karasjok?q=2023"' +
-            'target="_blank">YR</a>',
-    },
     xAxis: [
         {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             crosshair: true,
+            lineColor: '#FFFFFF',
+            gridLineWidth: 1,
+            gridLineColor: '#FFFFFF',
+            labels: {
+                style: {
+                    color: '#FFFFFF',
+                },
+            },
         },
     ],
     yAxis: [
         {
-            // Primary yAxis
-            labels: {
-                format: '{value}°C',
-            },
+            // 左側Y軸
+            max: CIIOverviewChart14maxYLeft,
+            labels: {},
             title: {
-                text: 'Temperature',
+                text: '運輸工作量 (mt × nm)',
+                style: {
+                    color: '#FFFFFF',
+                },
             },
-            lineColor: Highcharts.getOptions().colors[1],
-            lineWidth: 2,
+            gridLineColor: '#FFFFFF',
+            lineWidth: 1,
+            lineColor: '#FFFFFF',
+            tickColor: '#FFFFFF',
+            labels: {
+                style: {
+                    color: '#FFFFFF',
+                },
+            },
         },
         {
-            // Secondary yAxis
+            // 右側Y軸
+            max: CIIOverviewChart14maxYRight,
             title: {
-                text: 'Precipitation',
+                text: 'CII 數值',
+                rotation: 270,
+                style: {
+                    color: '#FFFFFF',
+                },
             },
+            gridLineColor: '#FFFFFF',
+            lineWidth: 1,
+            lineColor: '#FFFFFF',
+            tickColor: '#FFFFFF',
             labels: {
-                format: '{value} mm',
+                style: {
+                    color: '#FFFFFF',
+                },
             },
-            lineColor: Highcharts.getOptions().colors[0],
-            lineWidth: 2,
             opposite: true,
         },
     ],
@@ -47,26 +87,49 @@ Highcharts.chart('CIIOverviewChart14', {
         shared: true,
     },
     legend: {
-        align: 'left',
+        align: 'center',
         verticalAlign: 'top',
+        itemStyle: {
+            color: '#FFFFFF',
+        },
+    },
+    plotOptions: {
+        column: {
+            borderWidth: 0,
+            borderRadius: 0,
+        },
     },
     series: [
         {
-            name: 'Precipitation',
-            type: 'column',
+            name: 'CII實際值',
+            type: 'line',
             yAxis: 1,
-            data: [45.7, 37.0, 28.9, 17.1, 39.2, 18.9, 90.2, 78.5, 74.6, 18.7, 17.1, 16.0],
+            data: CIIOverviewChart14_chart_Series_data01,
             tooltip: {
-                valueSuffix: ' mm',
+                valueSuffix: '',
             },
+            zIndex: 1,
+            color: '#FFE100',
         },
         {
-            name: 'Temperature',
-            type: 'spline',
-            data: [-11.4, -9.5, -14.2, 0.2, 7.0, 12.1, 13.5, 13.6, 8.2, -2.8, -12.0, -15.5],
+            name: '運輸量',
+            type: 'line',
+            data: CIIOverviewChart14_chart_Series_data02,
             tooltip: {
-                valueSuffix: '°C',
+                valueSuffix: ' mt × nm',
             },
+            zIndex: 2,
+            color: '#00E272',
+        },
+        {
+            name: '運輸量總和',
+            type: 'column',
+            data: CIIOverviewChart14_chart_Series_data03,
+            tooltip: {
+                valueSuffix: ' mt × nm',
+            },
+            zIndex: 0,
+            color: '#2CAFFE',
         },
     ],
 });

@@ -1,4 +1,4 @@
-// Highcharts 全域隱藏 Highcharts 品牌 mark
+// Highcharts 全域隱藏 Highcharts LOGO
 Highcharts.setOptions({
     credits: {
         enabled: false,
@@ -7,6 +7,14 @@ Highcharts.setOptions({
         enabled: false,
     },
 });
+
+// CII RANK 的4個分界值
+let ciiRankValue = {
+    rankAB: '11.27',
+    rankBC: '12.76',
+    rankCD: '14.53',
+    rankDE: '16.16',
+};
 
 // 色BAR與下標籤
 Highcharts.chart('containerCiiMain', {
@@ -83,9 +91,7 @@ Highcharts.chart('containerCiiMain', {
             ],
         },
     ],
-    tooltip: {
-        pointFormat: '<b>{point.y}</b> (with target at {point.target})',
-    },
+    pointFormat: '<b>{point.y}</b> (with target at {point.target})',
 });
 
 // 上方標籤
@@ -137,10 +143,10 @@ Highcharts.chart('containerCiiTitle', {
             formatter: function () {
                 const labelMap = {
                     0: '',
-                    2: '11.27',
-                    4: '12.76',
-                    6: '14.53',
-                    8: '16.16',
+                    2: ciiRankValue.rankAB,
+                    4: ciiRankValue.rankBC,
+                    6: ciiRankValue.rankCD,
+                    8: ciiRankValue.rankDE,
                     10: '',
                 };
                 return labelMap[this.value] || '';
@@ -163,7 +169,5 @@ Highcharts.chart('containerCiiTitle', {
         },
     ],
     // End 這裡保持和下標籤一樣的值
-    tooltip: {
-        pointFormat: '<b>{point.y}</b> (with target at {point.target})',
-    },
+    pointFormat: '<b>{point.y}</b> (with target at {point.target})',
 });

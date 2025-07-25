@@ -1,13 +1,13 @@
 .data-block {
     border-left: 5px solid $gray-2;
 }
-//
-// leaflet 上的視窗
-//
 .block-content {
     position: relative;
 }
 
+//
+// leaflet 上的視窗
+//
 .CII-ship-data {
     width: 553px;
     height: 647px;
@@ -16,6 +16,13 @@
     background: #292929;
     top: 16px;
     left: 22px;
+    @include bigPad {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
 }
 .ship-name {
     h2 {
@@ -48,8 +55,9 @@
         background: #ffcb2b;
     }
 }
+// End leaflet 上的視窗
 .DivTables-Wrap {
-    min-width: 236px;
+    // min-width: 236px;
 }
 .DivTables-Wrap .border-bottom {
     border-color: #303030 !important;
@@ -127,7 +135,8 @@
     color: #fff;
     background-color: #424242;
 }
-.SLAB-table.table > :not(caption) > .even > td {
+.SLAB-table.table > :not(caption) > .even > td,
+.SLAB-table.table > :not(caption) > .even {
     color: #fff;
     background-color: #323232;
 }
@@ -136,12 +145,13 @@
     background-color: #292929;
 }
 .SLAB-table.table-striped > tbody > tr:nth-of-type(2n + 1) > * {
-    --bs-table-bg-type: #292929 !important;
+    --bs-table-bg-type: #323232 !important;
 }
 .SLAB-table.table > :not(:last-child) > :last-child > * {
     border-bottom-color: #1d1d1d;
 }
-table.dataTable.display tbody tr:hover > .sorting_1,
+table.dataTable.display tbody tr.even:hover > .sorting_1,
+table.dataTable.display tbody tr.odd:hover > .sorting_1,
 table.dataTable.display > tbody > tr:hover > * {
     box-shadow: inset 0 0 0 9999px rgba(100, 100, 100, 0.3);
 }
@@ -195,4 +205,20 @@ table.dataTable.display > tbody > tr:hover > * {
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     border-radius: 4px;
     border: 1px solid #ddd;
+}
+
+// charts樣式
+.chart-wrapper {
+    width: 100%;
+    overflow: auto;
+}
+.dataTables_length {
+    margin-bottom: 8px;
+}
+.dataTables_wrapper .dataTables_length select {
+    background: #424242;
+    color: #fff;
+    option {
+        background: #424242;
+    }
 }

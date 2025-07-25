@@ -1,45 +1,87 @@
+// 折線圖資料 - CO₂排放量(黃色)
+let CIIOverviewChart13_chart_Series_data01 = [
+    11000, 16000, 14000, 17500, 10800, 14000, 16000, 13500, 13300, 13434, 16800, 14000,
+];
+// 長條圖資料 - LNG(淡藍色)
+let CIIOverviewChart13_chart_Series_data02 = [0, 0, 0, 0, 5000, 0, 0, 0, 0, 0, 0, 0];
+// 長條圖資料 - MGO(水藍色)
+let CIIOverviewChart13_chart_Series_data03 = [4000, 1000, 4000, 800, 2000, 6000, 6000, 3000, 3000, 5000, 8000, 6000];
+// 長條圖資料 - HFO(深藍色)
+let CIIOverviewChart13_chart_Series_data04 = [0, 6000, 4000, 7000, 2500, 4800, 5000, 3000, 3500, 3235, 3844, 3210];
+
+// 找出最大值，以定義Y軸高度
+const CIIOverviewChart13allData = [
+    ...CIIOverviewChart13_chart_Series_data01,
+    ...CIIOverviewChart13_chart_Series_data02,
+    ...CIIOverviewChart13_chart_Series_data03,
+    ...CIIOverviewChart13_chart_Series_data04,
+];
+const CIIOverviewChart13maxVal = Math.max(...CIIOverviewChart13allData);
+const CIIOverviewChart13maxY = Math.ceil(CIIOverviewChart13maxVal * 1.25);
+
 Highcharts.chart('CIIOverviewChart13', {
     chart: {
-        zooming: {
-            type: 'xy',
-        },
+        // zooming: {
+        //     type: 'xy',
+        // },
         backgroundColor: '#292929',
     },
     title: null,
-    credits: {
-        text:
-            'Source: ' +
-            '<a href="https://www.yr.no/nb/historikk/graf/5-97251/Norge/Finnmark/Karasjok/Karasjok?q=2023"' +
-            'target="_blank">YR</a>',
-    },
     xAxis: [
         {
             categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             crosshair: true,
+            lineColor: '#FFFFFF',
+            gridLineWidth: 1,
+            gridLineColor: '#FFFFFF',
+            labels: {
+                style: {
+                    color: '#FFFFFF',
+                },
+            },
         },
     ],
     yAxis: [
         {
-            // Primary yAxis
-            labels: {
-                format: '{value}°C',
-            },
+            // 左側Y軸
+            max: CIIOverviewChart13maxY,
+            labels: {},
             title: {
-                text: 'Temperature',
+                text: '油品燒油量 (mt)',
+                style: {
+                    color: '#FFFFFF',
+                },
             },
-            lineColor: Highcharts.getOptions().colors[1],
-            lineWidth: 2,
+            gridLineColor: '#FFFFFF',
+            lineWidth: 1,
+            lineColor: '#FFFFFF',
+            tickColor: '#FFFFFF',
+            labels: {
+                style: {
+                    color: '#FFFFFF',
+                },
+            },
         },
         {
-            // Secondary yAxis
+            linkedTo: 0, // 同步使用第一個Y軸的 min/max
+            // 右側Y軸
+            max: CIIOverviewChart13maxY,
             title: {
-                text: 'Precipitation',
+                text: 'CO₂排放量 (mt)',
+                rotation: 270,
+                style: {
+                    color: '#FFFFFF',
+                },
             },
+            gridLineColor: '#FFFFFF',
+            lineWidth: 1,
+            lineColor: '#FFFFFF',
+            tickColor: '#FFFFFF',
             labels: {
-                format: '{value} mm',
+                style: {
+                    color: '#FFFFFF',
+                },
             },
-            lineColor: Highcharts.getOptions().colors[0],
-            lineWidth: 2,
             opposite: true,
         },
     ],
@@ -47,26 +89,57 @@ Highcharts.chart('CIIOverviewChart13', {
         shared: true,
     },
     legend: {
-        align: 'left',
+        align: 'center',
         verticalAlign: 'top',
+        itemStyle: {
+            color: '#FFFFFF',
+        },
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            borderWidth: 0,
+            borderRadius: 0,
+        },
     },
     series: [
         {
-            name: 'Precipitation',
-            type: 'column',
+            name: 'CO₂排放量',
+            type: 'line',
             yAxis: 1,
-            data: [45.7, 37.0, 28.9, 17.1, 39.2, 18.9, 90.2, 78.5, 74.6, 18.7, 17.1, 16.0],
+            data: CIIOverviewChart13_chart_Series_data01,
             tooltip: {
-                valueSuffix: ' mm',
+                valueSuffix: ' mt',
             },
+            zIndex: 1,
+            color: '#FFE100',
         },
         {
-            name: 'Temperature',
-            type: 'spline',
-            data: [-11.4, -9.5, -14.2, 0.2, 7.0, 12.1, 13.5, 13.6, 8.2, -2.8, -12.0, -15.5],
+            name: 'LNG',
+            type: 'column',
+            data: CIIOverviewChart13_chart_Series_data02,
             tooltip: {
-                valueSuffix: '°C',
+                valueSuffix: ' mt',
             },
+            color: '#86D7FF',
+        },
+        {
+            name: 'MGO',
+            type: 'column',
+            data: CIIOverviewChart13_chart_Series_data03,
+            tooltip: {
+                valueSuffix: ' mt',
+            },
+            color: '#00AAFF',
+        },
+        {
+            name: 'HFO',
+            type: 'column',
+            data: CIIOverviewChart13_chart_Series_data04,
+            tooltip: {
+                valueSuffix: ' mt',
+            },
+            color: '#0084EA',
         },
     ],
 });

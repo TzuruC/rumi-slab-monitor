@@ -15,7 +15,7 @@
     <!-- leaflet -->
     <link rel="stylesheet" href="/Plugin/leaflet/leaflet.css" />
     <script src="/Plugin/leaflet/leaflet.js"></script>
-    <link rel="stylesheet" href="/Plugin/leaflet/customize/leafletMapR.css">
+    <link rel="stylesheet" href="/Plugin/leaflet/customize/leafletMapCII.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="/Plugin/DataTables/datatables.min.css">
     <!-- Cutomized -->
@@ -32,15 +32,15 @@
                         <div id="toggleContentWidth" class="toggle-content">
                             <div class="page-content text-white p-0">
                                 <!-- 頁面標題與返回按鈕 -->
-                                <div class="px-3 heading d-flex justify-content-between align-items-baseline">
+                                <div class="px-3 heading d-flex justify-content-between align-items-top">
                                     <h2 class="mb-0 fw-bold text-rat">CII 碳強度管理系統 - 年度分析</h2>
-                                    <div class="page-nav-btn-group">
+                                    <div class="page-nav-btn-group flex-shrink-0 align-self-top">
                                         <div class="btn btn-sm btn-outline-light align-end mb-1">
                                             <i class="fa-solid fa-reply"></i> Back
                                         </div>
                                     </div>
                                 </div>
-                                <div class="px-3 data-reference mb-2 d-flex fs-14 text-gray-1">
+                                <div class="row px-3 data-reference mb-2 d-flex fs-14 text-gray-1">
                                     <div class="me-4 col-auto">資料收集來源：SDataPro、船員午報</div>
                                     <div class="me-4 col-auto">資料收集時間區段：2025/01/01-2025/07/17</div>
                                     <div class="me-4 col-auto">資料回傳最後時間：2025/07/17 13:00:25 (UTC+8)</div>
@@ -55,7 +55,7 @@
                                                     <!-- CII-ship-data -->
                                                     <%- include('src/layout/pop-window/CIIShipData'); -%>
                                                         <!-- Main Map -->
-                                                        <div id="mapR"></div>
+                                                        <div id="mapCII"></div>
 
 
                                                 </div>
@@ -305,10 +305,10 @@
                                                 <div
                                                     class="row g-0 justify-content-between align-items-start mb-3 mb-md-0">
                                                     <div class="col-12">
-                                                        <div class="bg-dark-1 p-4">
+                                                        <div class="bg-dark-1">
                                                             <div
                                                                 class="row g-0 justify-content-between align-items-start mb-3 mb-md-3">
-                                                                <div class="col-auto">
+                                                                <div class="col-auto p-4">
                                                                     <h4 class="YAMIS-title h4 w-100">維持C級油耗趨勢圖</h4>
                                                                     <div class="block-subtitle ms-4">
                                                                         <div class=" fs-16">單船日常營運實際燃油消耗表現，評估其是否穩定處於IMO
@@ -319,31 +319,36 @@
                                                                             <input type="radio" class="btn-check"
                                                                                 name="btnradio01" id="btnradio11"
                                                                                 autocomplete="off" checked>
-                                                                            <label class="btn btn-outline-secondary"
+                                                                            <label
+                                                                                class="btn btn-outline-secondary lh-1 p-2"
                                                                                 for="btnradio11">年</label>
 
                                                                             <input type="radio" class="btn-check"
                                                                                 name="btnradio01" id="btnradio12"
                                                                                 autocomplete="off">
-                                                                            <label class="btn btn-outline-secondary"
+                                                                            <label
+                                                                                class="btn btn-outline-secondary lh-1 p-2"
                                                                                 for="btnradio12">季</label>
 
                                                                             <input type="radio" class="btn-check"
                                                                                 name="btnradio01" id="btnradio13"
                                                                                 autocomplete="off">
-                                                                            <label class="btn btn-outline-secondary"
+                                                                            <label
+                                                                                class="btn btn-outline-secondary lh-1 p-2"
                                                                                 for="btnradio13">月</label>
 
                                                                             <input type="radio" class="btn-check"
                                                                                 name="btnradio01" id="btnradio14"
                                                                                 autocomplete="off">
-                                                                            <label class="btn btn-outline-secondary"
+                                                                            <label
+                                                                                class="btn btn-outline-secondary lh-1 p-2"
                                                                                 for="btnradio14">週</label>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
-                                                                <div id="CIIOverviewChart11"></div>
+                                                                <div class="chart-wrapper ps-2 pe-4">
+                                                                    <div id="CIIOverviewChart11"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -369,7 +374,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="CIIOverviewChart12"></div>
+                                                <div class="chart-wrapper ps-2 pe-4">
+                                                    <div id="CIIOverviewChart12"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- End 區塊 - 速度與耗油趨勢圖 -->
@@ -393,25 +400,29 @@
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio02" id="btnradio21"
                                                                             autocomplete="off" checked>
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio21">年</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio02" id="btnradio22"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio22">季</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio02" id="btnradio23"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio23">月</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio02" id="btnradio24"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio24">週</label>
                                                                     </div>
                                                                 </div>
@@ -419,7 +430,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="CIIOverviewChart13"></div>
+                                                <div class="chart-wrapper ps-2 pe-2">
+                                                    <div id="CIIOverviewChart13"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- End 區塊 - 油品燃油量與CO₂排放量關係圖 -->
@@ -442,25 +455,29 @@
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio03" id="btnradio31"
                                                                             autocomplete="off" checked>
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio31">年</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio03" id="btnradio32"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio32">季</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio03" id="btnradio33"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio33">月</label>
 
                                                                         <input type="radio" class="btn-check"
                                                                             name="btnradio03" id="btnradio34"
                                                                             autocomplete="off">
-                                                                        <label class="btn btn-outline-secondary"
+                                                                        <label
+                                                                            class="btn btn-outline-secondary lh-1 p-2"
                                                                             for="btnradio34">週</label>
                                                                     </div>
                                                                 </div>
@@ -468,7 +485,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div id="CIIOverviewChart14"></div>
+                                                <div class="chart-wrapper ps-2 pe-2">
+                                                    <div id="CIIOverviewChart14"></div>
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- End 區塊 - 運輸工作量與CII關係圖 -->
@@ -504,13 +523,13 @@
     <!-- Bootstrap bundle -->
     <script src="/Plugin/bootstrap-5.1.1/dist/js/bootstrap.bundle.js"></script>
     <!-- leaflet -->
-    <script src="/Plugin/leaflet/customize/leafletMapR.js"></script>
+    <script src="/Plugin/leaflet/customize/leafletMapCII.js"></script>
     <!-- Highcharts -->
     <script src="/Plugin/Highcharts/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="https://code.highcharts.com/modules/bullet.js"></script>
-    <script src="https://code.highcharts.com/themes/adaptive.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.5.2/math.js"></script>
+    <script src="/Plugin/Highcharts/accessibility.js"></script>
+    <script src="/Plugin/Highcharts/bullet.js"></script>
+    <script src="/Plugin/Highcharts/adaptive.js"></script>
+    <script src="/Plugin/Highcharts/mathjs/math.js"></script>
     <!-- Highcharts - customized -->
     <script src="/Plugin/Highcharts/customize/CIIOverviewChart00.js"></script>
     <script src="/Plugin/Highcharts/customize/CIIOverviewChart01.js"></script>
@@ -524,10 +543,11 @@
     <script>
         $(document).ready(function () {
             $('#tableCII1').DataTable({
-                lengthChange: false,
+                lengthChange: true,
                 searching: false,
                 autoWidth: false,
-                pageLength: 5,
+                // pageLength: 5,
+                lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "全部"]],
                 order: [[1, 'asc']],
                 responsive: true,
                 language: {
