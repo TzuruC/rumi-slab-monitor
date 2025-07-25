@@ -8,6 +8,7 @@ Highcharts.setOptions({
     },
 });
 
+// 色BAR與下標籤
 Highcharts.chart('containerCiiMain', {
     chart: {
         marginLeft: 0,
@@ -42,26 +43,32 @@ Highcharts.chart('containerCiiMain', {
     },
     yAxis: {
         gridLineWidth: 0,
-        max: 8,
+        max: 10, // 最大值
         // 第一個 Y 軸
         plotBands: [
             // 共用的區域背景
-            { from: 0, to: 5.4, color: '#27FF96' },
-            { from: 5.4, to: 6.12, color: '#02EB7A' },
-            { from: 6.12, to: 6.96, color: '#149E5B' },
-            { from: 6.96, to: 7.75, color: '#FFCB2B' },
-            { from: 7.75, to: 8, color: '#FF5C5C' },
+            { from: 0, to: 2, color: '#27FF96' },
+            { from: 2, to: 4, color: '#02EB7A' },
+            { from: 4, to: 6, color: '#149E5B' },
+            { from: 6, to: 8, color: '#FFCB2B' },
+            { from: 8, to: 10, color: '#FF5C5C' },
         ],
-        tickPositions: [0.1, 5.76, 6.54, 7.2, 7.9], // 第一個 Y 軸的標籤位置
-        categories: ['A', 'B', 'C', 'D', 'E'], // 第一個 Y 軸的標籤
         title: null,
         labels: {
             formatter: function () {
-                const positionIndex = this.axis.tickPositions.indexOf(this.value);
-                return this.axis.categories[positionIndex] || '';
+                const labelMap = {
+                    1: 'A',
+                    3: 'B',
+                    5: 'C',
+                    7: 'D',
+                    9: 'E',
+                };
+                return labelMap[this.value] || '';
             },
             style: {
-                color: '#FFFFFF', // 第一個 Y 軸的文字顏色
+                fontSize: '20px',
+                fontWeight: 'bold',
+                color: '#FFFFFF',
             },
             opposite: true,
         },
@@ -70,8 +77,8 @@ Highcharts.chart('containerCiiMain', {
         {
             data: [
                 {
-                    y: 8,
-                    target: 3.2,
+                    y: 10, // 最大值
+                    target: 2, // 紅槓位置
                 },
             ],
         },
@@ -80,6 +87,8 @@ Highcharts.chart('containerCiiMain', {
         pointFormat: '<b>{point.y}</b> (with target at {point.target})',
     },
 });
+
+// 上方標籤
 Highcharts.chart('containerCiiTitle', {
     chart: {
         marginLeft: 0,
@@ -88,7 +97,7 @@ Highcharts.chart('containerCiiTitle', {
         inverted: true, // 將圖形方向變成水平
         backgroundColor: '#292929',
         marginTop: 40,
-        margin: [0, 0, 80, 0], // 去除所有邊距
+        margin: [0, 0, 50, 0], // 去除所有邊距
         spacing: [0, 0, 0, 0],
     },
     title: null,
@@ -114,25 +123,31 @@ Highcharts.chart('containerCiiTitle', {
     },
     yAxis: {
         gridLineWidth: 0,
-        max: 8,
-        // 第一個 Y 軸
+        max: 10, // 上方標籤最大值
         plotBands: [
-            // 共用的區域背景
-            { from: 0, to: 5.4, color: '#27FF96' },
-            { from: 5.4, to: 6.12, color: '#02EB7A' },
-            { from: 6.12, to: 6.96, color: '#149E5B' },
-            { from: 6.96, to: 7.75, color: '#FFCB2B' },
-            { from: 7.75, to: 8, color: '#FF5C5C' },
+            { from: 0, to: 2, color: '#27FF96' },
+            { from: 2, to: 4, color: '#02EB7A' },
+            { from: 4, to: 6, color: '#149E5B' },
+            { from: 6, to: 8, color: '#FFCB2B' },
+            { from: 8, to: 10, color: '#FF5C5C' },
         ],
-        tickPositions: [0.1, 5.76, 6.54, 7.2, 7.9], // 第一個 Y 軸的標籤位置
-        categories: ['A', 'B', 'C', 'D', 'E'], // 第一個 Y 軸的標籤
+        tickPositions: [0, 2, 4, 6, 8, 10],
         title: null,
         labels: {
             formatter: function () {
-                const positionIndex = this.axis.tickPositions.indexOf(this.value);
-                return this.axis.categories[positionIndex] || '';
+                const labelMap = {
+                    0: '',
+                    2: '11.27',
+                    4: '12.76',
+                    6: '14.53',
+                    8: '16.16',
+                    10: '',
+                };
+                return labelMap[this.value] || '';
             },
             style: {
+                fontSize: '16px',
+                fontWeight: 'bold',
                 color: '#FFFFFF', // 第一個 Y 軸的文字顏色
             },
             opposite: true,
@@ -142,12 +157,12 @@ Highcharts.chart('containerCiiTitle', {
         {
             data: [
                 {
-                    y: 8,
-                    target: 3.2,
+                    y: 10,
                 },
             ],
         },
     ],
+    // End 這裡保持和下標籤一樣的值
     tooltip: {
         pointFormat: '<b>{point.y}</b> (with target at {point.target})',
     },
