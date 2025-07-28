@@ -1,7 +1,7 @@
 var mapRoutes;
 
 // 建立地圖並指定預設的 renderer 為 L.canvas()
-var mapRoutes = L.map('mapCII', {
+var mapRoutes = L.map('mapR', {
     center: [25.033493, 121.564101], // 預設中心點
     zoom: 13, // 預設縮放級別
     zoomControl: false, // 關閉縮放控制
@@ -25,18 +25,21 @@ function latlngFormat(coord, isLat) {
     }
     return degrees + 'º ' + minutes + ' ' + direction;
 }
-mapRoutes.on('mousemove', function (e) {
-    var lat = e.latlng.lat;
-    var lng = e.latlng.lng;
+// 設定經緯度 (例如：台北市的經緯度)
+var centerLat = 25.033; // 緯度
+var centerLon = 121.5654; // 經度
 
-    // 將經緯度轉換為度和分格式
-    var latText = latlngFormat(lat, true);
-    var lngText = latlngFormat(lng, false);
+/////////////////
+// 切換地圖
+/////////////////
 
-    // 更新頁面上的經緯度顯示
-    document.querySelector('.lat').textContent = latText;
-    document.querySelector('.lng').textContent = lngText;
+// Google Map
+var SX_Google_map = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    maxZoom: 15,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    renderer: L.canvas(),
 });
+SX_Google_map.addTo(mapRoutes);
 // 確定頁面載入完畢後再渲染
 setTimeout(function () {
     mapRoutes.invalidateSize();

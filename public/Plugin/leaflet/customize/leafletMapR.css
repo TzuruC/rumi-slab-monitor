@@ -1,6 +1,7 @@
-#mapCII {
+#mapR {
     width: 100%;
     min-height: 679px;
     position: relative;
     outline: none;
+    z-index: 0;
 }

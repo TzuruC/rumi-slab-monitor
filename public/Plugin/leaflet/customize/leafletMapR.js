@@ -1,7 +1,7 @@
 var mapRoutes;
 
 // 建立地圖並指定預設的 renderer 為 L.canvas()
-var mapRoutes = L.map('mapCII', {
+var mapRoutes = L.map('mapR', {
     center: [25.033493, 121.564101], // 預設中心點
     zoom: 13, // 預設縮放級別
     zoomControl: false, // 關閉縮放控制

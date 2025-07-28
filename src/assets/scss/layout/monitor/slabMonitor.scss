@@ -1,0 +1,200 @@
+// 自定義 CSS
+$bgBlock: #292929;
+$bgTh: #424242;
+$bgTdEven: #323232;
+$bgTdOdd: #292929;
+$thBorder: #1d1d1d;
+$trBorder: #515151;
+$dataColor: #fff;
+$indentColor: #666;
+.monitor-container {
+    background: $bgBlock;
+    ol {
+        padding: 0;
+        list-style: none;
+    }
+    .grid-th {
+        background: $bgTh;
+    }
+    .level-2 {
+        padding-left: 16px;
+        display: inline-block;
+    }
+}
+.grid-row {
+    display: grid;
+    grid-template-columns: 36px 3fr 1fr 1fr 1fr 2fr 3fr 1fr;
+    gap: 0;
+    white-space: nowrap;
+    text-align: left;
+    &.grid-th {
+        border-bottom: 1px solid $thBorder;
+    }
+    &.grid-tr {
+        border-bottom: 1px solid $trBorder;
+    }
+    & > div {
+        padding: 8px 8px;
+    }
+}
+
+// End 自定義 CSS
+// 套件CSS
+.sortable {
+    --pad: 8px;
+    --border-color: tranparent;
+    --marker-color: tranparent;
+    --focus-color: #3b3b3b;
+    --helper-color: rgba(200, 200, 200, 0.3);
+    --placeholder-color: #353535;
+    padding-left: 0;
+    border: 1px solid var(--border-color);
+
+    &:focus {
+        outline: 3px dashed var(--focus-color);
+        outline-offset: -3px;
+    }
+
+    li {
+        position: relative;
+        cursor: pointer;
+        background: transparent;
+        border-top: 1px solid var(--border-color);
+        border-left: 5px solid var(--marker-color);
+        box-sizing: border-box;
+        list-style-type: none;
+        &:focus {
+            background: var(--focus-color);
+
+            &:before {
+                color: var(--marker-color);
+            }
+        }
+
+        & > div {
+            & > div {
+                padding: var(--pad);
+                box-sizing: border-box;
+            }
+
+            &:hover {
+                background: var(--focus-color);
+            }
+        }
+    }
+
+    .ui-sortable-helper {
+        background: var(--helper-color) !important;
+        opacity: 0.9;
+    }
+
+    .ui-sortable-placeholder {
+        visibility: visible !important;
+        border-left: none;
+        background: var(--placeholder-color);
+        opacity: 0.5;
+    }
+
+    // 多層 li 定義
+    .indent {
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    // 第 1 層 li 定義
+    li .indent {
+        color: red;
+        padding-left: calc(var(--pad) * 3);
+    }
+    // 第 2 層 li 定義
+    li li .indent {
+        color: $dataColor;
+        padding-left: calc(var(--pad) * 6);
+        &:before {
+            color: $indentColor;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 400;
+            content: '\f148';
+            position: absolute;
+            left: calc(var(--pad) * 8);
+            top: calc(var(--pad));
+            rotate: 90deg;
+        }
+    }
+    // 第 3 層 li 定義
+    // 第 4 層 li 定義
+    // 第 5 層 li 定義
+    // 第 6 層 li 定義
+    // 第 7 層 li 定義
+    // 第 8 層 li 定義
+    // 第 9 層 li 定義
+    // 第 10 層 li 定義
+    // 第 11 層 li 定義
+}
+
+.text-outline {
+    color: #fff;
+}
+
+// NON-ESSENTIAL STYLES FOLLOW:
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: avenir, tahoma, monospace;
+}
+
+body {
+    padding: 1em;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    gap: 1em;
+
+    > *:first-child {
+        flex: 1;
+    }
+
+    > *:last-child {
+        flex: 1;
+    }
+}
+
+.output {
+    border: solid blue;
+    font-size: 10px;
+}
+
+.copy-to-clipboard {
+    width: 100%;
+}
+
+code {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: green;
+}
+
+pre[title='click to copy to clipboard']:hover {
+    background: black;
+}
+
+.ui-dialog {
+    background: black;
+    padding: 1em;
+    border-radius: 1em;
+    .ui-dialog-buttonset {
+        display: flex;
+        gap: 1em;
+    }
+}
+
+.temporary-modal {
+    background: black;
+    color: white;
+}
