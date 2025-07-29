@@ -1,6 +1,7 @@
 $(document).ready(() => {
     $('.sortable').nestedSortable({
         items: 'li',
+        cancel: '.no-sort',       // 禁止拖曳的項目（例如th所在的li加上no-sort）
         relocate: function (event, ui) {
             getHierarchyData();
         },
@@ -251,10 +252,10 @@ function hitEnter(event) {
 
                 // mjs - let's start caching some variables
                 var parentItem =
-                        this.placeholder[0].parentNode.parentNode &&
+                    this.placeholder[0].parentNode.parentNode &&
                         $(this.placeholder[0].parentNode.parentNode).closest('.ui-sortable').length
-                            ? $(this.placeholder[0].parentNode.parentNode)
-                            : null,
+                        ? $(this.placeholder[0].parentNode.parentNode)
+                        : null,
                     level = this._getLevel(this.placeholder),
                     childLevels = this._getChildLevels(this.helper);
 
@@ -429,7 +430,7 @@ function hitEnter(event) {
                     !(o.protectRoot && parentItem[0].parentNode == this.element[0]) &&
                     ((o.rtl &&
                         this.positionAbs.left + this.helper.outerWidth() >
-                            parentItem.offset().left + parentItem.outerWidth()) ||
+                        parentItem.offset().left + parentItem.outerWidth()) ||
                         (!o.rtl && this.positionAbs.left < parentItem.offset().left))
                 ) {
                     parentItem.after(this.placeholder[0]);
@@ -453,7 +454,7 @@ function hitEnter(event) {
                     !(o.protectRoot && this.currentItem[0].parentNode == this.element[0]) &&
                     ((o.rtl &&
                         this.positionAbs.left + this.helper.outerWidth() <
-                            previousItem.offset().left + previousItem.outerWidth() - o.tabSize) ||
+                        previousItem.offset().left + previousItem.outerWidth() - o.tabSize) ||
                         (!o.rtl && this.positionAbs.left > previousItem.offset().left + o.tabSize))
                 ) {
                     this._isAllowed(previousItem, level, level + childLevels + 1);
@@ -530,10 +531,10 @@ function hitEnter(event) {
                 var half = this.options.isTree ? 0.8 : 0.5;
 
                 var isOverBottomHalf = isOverAxis(
-                        this.positionAbs.top + this.offset.click.top,
-                        item.top + item.height * half,
-                        item.height
-                    ),
+                    this.positionAbs.top + this.offset.click.top,
+                    item.top + item.height * half,
+                    item.height
+                ),
                     isOverTopHalf = isOverAxis(
                         this.positionAbs.top + this.offset.click.top,
                         item.top - item.height * half,
@@ -586,8 +587,8 @@ function hitEnter(event) {
 
                 $(items).each(function () {
                     var res = ($(o.item || this).attr(o.attribute || 'id') || '').match(
-                            o.expression || /(.+)[-=_](.+)/
-                        ),
+                        o.expression || /(.+)[-=_](.+)/
+                    ),
                         pid = (
                             $(o.item || this)
                                 .parent(o.listType)
@@ -598,11 +599,11 @@ function hitEnter(event) {
                     if (res) {
                         str.push(
                             (o.key || res[1]) +
-                                '[' +
-                                (o.key && o.expression ? res[1] : res[2]) +
-                                ']' +
-                                '=' +
-                                (pid ? (o.key && o.expression ? pid[1] : pid[2]) : o.rootID)
+                            '[' +
+                            (o.key && o.expression ? res[1] : res[2]) +
+                            ']' +
+                            '=' +
+                            (pid ? (o.key && o.expression ? pid[1] : pid[2]) : o.rootID)
                         );
                     }
                 });

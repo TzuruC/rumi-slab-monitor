@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,129 +10,52 @@
     <link href="/Plugin/fontawesome/css/brands.css" rel="stylesheet" />
     <link href="/Plugin/fontawesome/css/solid.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="/Plugin/bootstrap-5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="/Plugin/bootstrap-5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Cutomized -->
-    <link rel="stylesheet" href="src/assets/scss/main.scss">
-    <link rel="stylesheet" href="src/assets/scss/layout/monitor/slabMonitor.scss">
-</head>
+    <link rel="stylesheet" href="src/assets/scss/main.scss" />
+    <link
+      rel="stylesheet"
+      href="src/assets/scss/layout/monitor/slabMonitor.scss"
+    />
+  </head>
 
-<body>
+  <body class="p-0">
     <div class="wrapper">
-        <div class="container-fluid g-0">
-            <%- include('src/layout/pageHeader'); -%>
-                <section class="section-wrapper d-flex justify-content-between">
-                    <%- include('src/layout/pageAside'); -%>
-                        <div id="toggleContentWidth" class="toggle-content">
-                            <div class="page-content text-white p-0">
-                                <!-- 頁面標題與返回按鈕 -->
-                                <div class="mb-3 px-3 heading d-flex justify-content-between align-items-top">
-                                    <h2 class="mb-0 fw-bold text-rat">SLAB Monitor - 監控系統</h2>
-                                    <div class="page-nav-btn-group flex-shrink-0 align-self-top">
-                                        <div class="btn btn-sm btn-outline-light align-end mb-1">
-                                            <i class="fa-solid fa-reply"></i> Back
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- 頁面內容 -->
-                                <div class="container-fluid">
-                                    <div class="col-12">
-                                        <ol class="sortable text-outline" tabindex="0"
-                                            aria-description="To move an item, select an item, and then hit Enter to open a modal.">
-                                            <li data-id="1. Apple" tabindex="0" style="--color:red">
-                                                <div>Apple</div>
-                                            </li>
-                                            <li data-id="2. Banana" tabindex="0" style="--color:yellow">
-                                            <li class="">
-                                                <div class="grid-th grid-row">
-                                                    <div>#</div>
-                                                    <div>名稱</div>
-                                                    <div>偵測類別</div>
-                                                    <div>IP</div>
-                                                    <div>Port</div>
-                                                    <div>Domain</div>
-                                                    <div>偵測時間</div>
-                                                    <div>結果</div>
-                                                </div>
-                                            </li>
-                                            </li>
-                                            <li data-id="3. Coconut" tabindex="0" style="--color:beige">
-                                                <div>Coconut</div>
-                                                <!-- already-nested by default? put inside ol or ul tag -->
-                                                <ol>
-                                                    <li data-id="4. Durian" tabindex="0" style="--color:green">
-                                                        <div>Durian</div>
-                                                    </li>
-                                                    <li data-id="5. Eggplant" tabindex="0" style="--color:purple">
-                                                        <div>Eggplant</div>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                            <li data-id="6. Fig" tabindex="0" style="--color:maroon">
-                                                <div>Fig</div>
-                                            </li>
-                                            <li data-id="7. Grape" tabindex="0" style="--color:blue">
-                                                <div>Grape</div>
-                                            </li>
-                                        </ol>
-                                    </div>
-                                    <!--  -->
-                                    <div class="col-12">
-                                        <div class="monitor-container">
-                                            <!-- 表格標題 -->
-                                            <ol class="m-0">
-                                                <li class="">
-                                                    <div class="grid-th grid-row">
-                                                        <div></div>
-                                                        <div>名稱</div>
-                                                        <div>偵測類別</div>
-                                                        <div>IP</div>
-                                                        <div>Port</div>
-                                                        <div>Domain</div>
-                                                        <div>偵測時間</div>
-                                                        <div>結果</div>
-                                                    </div>
-                                                </li>
-                                            </ol>
-                                            <ol class="sortable">
-                                                <!-- 表格內容 -->
-                                                <li class="">
-                                                    <div class="grid-tr grid-row">
-                                                        <div data-src="#"><i class="fa-solid fa-bars"></i></div>
-                                                        <div data-src="名稱"><span class="indent">公司內部</span></div>
-                                                        <div data-src="偵測類別">Domain</div>
-                                                        <div data-src="IP">IP</div>
-                                                        <div data-src="Port">443</div>
-                                                        <div data-src="Domain">slab.com.tw</div>
-                                                        <div data-src="偵測時間"> 2025/07/26 12:16:25</div>
-                                                        <div data-src="結果"><span class="text-danger">FAIL</span></div>
-                                                    </div>
-                                                    <ol>
-                                                        <li class="grid-tr">
-                                                            <div class="grid-row">
-                                                                <div data-src="#"><i class="fa-solid fa-bars"></i></div>
-                                                                <div data-src="名稱"><span
-                                                                        class="indent">SlabTrafic每日成長量</span></div>
-                                                                <div data-src="偵測類別">偵測類別</div>
-                                                                <div data-src="IP">IP</div>
-                                                                <div data-src="Port">Port</div>
-                                                                <div data-src="Domain">Domain</div>
-                                                                <div data-src="偵測時間">偵測時間</div>
-                                                                <div data-src="結果">結果</div>
-                                                            </div>
-                                                        </li>
-                                                    </ol>
-                                                </li>
-                                            </ol>
-                                        </div>
-                                    </div>
-                                </div>
+      <div class="container-fluid g-0">
+        <%- include('src/layout/pageHeader'); -%>
+        <section class="section-wrapper d-flex justify-content-between">
+          <%- include('src/layout/pageAside'); -%>
+          <div id="toggleContentWidth" class="toggle-content">
+            <div class="page-content text-white p-0">
+              <!-- 頁面標題與返回按鈕 -->
+              <div
+                class="mb-3 px-3 heading d-flex justify-content-between align-items-top"
+              >
+                <h2 class="mb-0 fw-bold text-rat">SLAB Monitor - 監控系統</h2>
+                <div class="page-nav-btn-group flex-shrink-0 align-self-top">
+                  <div class="btn btn-sm btn-outline-light align-end mb-1">
+                    <i class="fa-solid fa-reply"></i> Back
+                  </div>
+                </div>
+              </div>
+              <!-- 頁面內容 -->
+              <div class="container-fluid">
+                <div class="col-12"></div>
+                <!--  -->
+                <div class="col-12">
+                  <%- include('src/layout/table/gridMonitor'); -%>
+                </div>
+              </div>
 
-                                <pre class="output"></pre>
-                                <!-- End of 頁面內容 -->
-                            </div>
-                        </div>
-                </section>
-        </div>
+              <pre class="output"></pre>
+              <!-- End of 頁面內容 -->
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
     <!-- jQuery -->
@@ -148,9 +70,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simulate/1.1.1/jquery.simulate.min.js"></script>
     <!-- nestedSortable - customize -->
     <script src="/Plugin/nestedSortable/customize/nestedData.js"></script>
-    <script>
-
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>

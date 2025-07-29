@@ -1,0 +1,140 @@
+<div class="monitor-container">
+  <!-- 表格標題 -->
+  <ol class="m-0">
+    <li class="">
+      <div class="grid-th grid-row">
+        <div></div>
+        <div>名稱</div>
+        <div>偵測類別</div>
+        <div>IP</div>
+        <div>Port</div>
+        <div>Domain</div>
+        <div>偵測時間</div>
+        <div>結果</div>
+      </div>
+    </li>
+  </ol>
+  <!-- 名稱可以是第一層+第二層+第三層+第四層...最少只有一層，最多到五層 -->
+  <!-- End 表格標題 -->
+  <!-- 表格內容 -->
+  <ol class="sortable w-100 overflow-auto">
+    <li class="w-100 no-sort">
+      <div class="grid-th grid-row w-100">
+        <div data-src="#"></div>
+        <div data-src="第一層分類">
+          <span class="indent">第一層分類</span>
+        </div>
+        <div data-src="第二層分類">
+          <span class="indent">第二層分類</span>
+        </div>
+        <div data-src="第三層分類">
+          <span class="indent">第三層分類</span>
+        </div>
+        <div>偵測類別</div>
+        <div>IP</div>
+        <div>Port</div>
+        <div>Domain</div>
+        <div>偵測時間</div>
+        <div>結果</div>
+      </div>
+    </li>
+    <li class="">
+      <div class="grid-tr grid-row">
+        <div data-src="#">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div data-src="第一層分類">
+          <span class="indent">公司內部</span>
+        </div>
+        <div data-src="第二層分類">
+          <span class="indent">公司內部</span>
+        </div>
+        <div data-src="第三層分類">
+          <span class="indent">註冊</span>
+        </div>
+        <div data-src="偵測類別">Domain</div>
+        <div data-src="IP">IP</div>
+        <div data-src="Port">443</div>
+        <div data-src="Domain">slab.com.tw</div>
+        <div data-src="偵測時間">2025/07/26 12:16:25</div>
+        <div data-src="結果">
+          <span class="text-danger">FAIL</span>
+        </div>
+      </div>
+    </li>
+    <li class="">
+      <div class="grid-tr grid-row">
+        <div data-src="#">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div data-src="第一層分類">
+          <span class="indent">公司內部</span>
+        </div>
+        <div data-src="第二層分類">
+          <span class="indent">研發部</span>
+        </div>
+        <div data-src="第三層分類">
+          <span class="indent">註冊</span>
+        </div>
+        <div data-src="偵測類別">Domain</div>
+        <div data-src="IP">192.168.0.10</div>
+        <div data-src="Port">443</div>
+        <div data-src="Domain">dev.slab.com.tw</div>
+        <div data-src="偵測時間">2025/07/29 09:12:44</div>
+        <div data-src="結果">
+          <span class="text-success">PASS</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="">
+      <div class="grid-tr grid-row">
+        <div data-src="#">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div data-src="第一層分類">
+          <span class="indent">對外服務</span>
+        </div>
+        <div data-src="第二層分類">
+          <span class="indent">API服務</span>
+        </div>
+        <div data-src="第三層分類">
+          <span class="indent">註冊</span>
+        </div>
+        <div data-src="偵測類別">Port</div>
+        <div data-src="IP">203.66.82.101</div>
+        <div data-src="Port">8080</div>
+        <div data-src="Domain">api.slab.com.tw</div>
+        <div data-src="偵測時間">2025/07/29 10:03:57</div>
+        <div data-src="結果">
+          <span class="text-danger">FAIL</span>
+        </div>
+      </div>
+    </li>
+
+    <li class="">
+      <div class="grid-tr grid-row">
+        <div data-src="#">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <div data-src="第一層分類">
+          <span class="indent">對外服務</span>
+        </div>
+        <div data-src="第二層分類">
+          <span class="indent">官網</span>
+        </div>
+        <div data-src="第三層分類">
+          <span class="indent">註冊</span>
+        </div>
+        <div data-src="偵測類別">Domain</div>
+        <div data-src="IP">60.248.110.12</div>
+        <div data-src="Port">80</div>
+        <div data-src="Domain">www.slab.com.tw</div>
+        <div data-src="偵測時間">2025/07/29 10:15:12</div>
+        <div data-src="結果">
+          <span class="text-success">PASS</span>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
