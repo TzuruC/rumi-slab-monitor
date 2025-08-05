@@ -59,7 +59,7 @@ $indentColor: #666;
 }
 // End 自定義 CSS
 // 套件CSS
-.sortable {
+.monitor-container .sortable {
   --pad: 8px;
   --border-color: tranparent;
   --marker-color: tranparent;
@@ -82,7 +82,6 @@ $indentColor: #666;
     list-style-type: none;
     &:focus {
       background: var(--focus-color);
-
       &:before {
         color: var(--marker-color);
       }
@@ -114,41 +113,105 @@ $indentColor: #666;
     display: inline-block;
     box-sizing: border-box;
   }
+  //--------------------------------------------
+  //
   // 第 1 層 li 定義
   //   li .indent {
   //     padding-left: calc(var(--pad) * 3);
   //   }
   // 第 2 層 li 定義
-  li li .indent {
-    color: $dataColor;
-    &:before {
-      color: $indentColor;
-      font-family: "Font Awesome 6 Free";
-      font-weight: 400;
-      content: "\f148";
-      position: absolute;
-      left: calc(var(--pad) * 8);
-      top: calc(var(--pad));
-      rotate: 90deg;
+  li li{
+    .indent {
+      color: $dataColor;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: calc(var(--pad) * 8);
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
     }
-  }
-  li li div[data-src="第一層分類"] .indent {
-    padding-left: 0;
-    visibility: hidden;
-    position: relative;
-    &:before {
-      color: $indentColor;
-      font-family: "Font Awesome 6 Free";
-      font-weight: 400;
-      content: "\f148";
-      position: absolute;
-      left: 0;
-      top: calc(var(--pad));
-      rotate: 90deg;
+    div[data-src="第一層分類"] .indent {
+      padding-left: 0;
+      visibility: hidden;
+      position: relative;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: 0;
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
     }
   }
   // 第 3 層 li 定義
+  li li li{
+    .indent {
+      color: $dataColor;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: calc(var(--pad) * 39);
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
+    }
+    div[data-src="第二層分類"] .indent {
+      padding-left: 0;
+      visibility: hidden;
+      position: relative;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: 0;
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
+    }
+  }
   // 第 4 層 li 定義
+  li li li li{
+    .indent {
+      color: $dataColor;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: calc(var(--pad) * 39);
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
+    }
+    div[data-src="第三層分類"] .indent {
+      padding-left: 0;
+      visibility: hidden;
+      position: relative;
+      &:before {
+        color: $indentColor;
+        font-family: "Font Awesome 6 Free";
+        font-weight: 400;
+        content: "\f148";
+        position: absolute;
+        left: 0;
+        top: calc(var(--pad));
+        rotate: 90deg;
+      }
+    }
+  }
   // 第 5 層 li 定義
   // 第 6 層 li 定義
   // 第 7 層 li 定義
