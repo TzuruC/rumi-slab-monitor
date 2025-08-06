@@ -21,6 +21,9 @@ $indentColor: #666;
     display: inline-block;
   }
 }
+.sort-draggler{
+  color: $indentColor;
+}
 .grid-row {
   width: 100%;
   display: grid;
@@ -43,9 +46,12 @@ $indentColor: #666;
     background: $bgTh;
     border-bottom: 1px solid $thBorder;
   }
-  &.grid-tr,
+  // &.grid-tr,
   &.grid-tr div {
     border-bottom: 1px solid $trBorder;
+  }
+  &.grid-tr:hover div {
+    background: #3B3B3B;
   }
   & > div {
     padding: 8px 8px;
@@ -58,20 +64,22 @@ $indentColor: #666;
   background-color: $bgTdEven;
 }
 // End 自定義 CSS
+
 // 套件CSS
-.monitor-container .sortable {
+.monitor-container .monitor-sortable {
   --pad: 8px;
   --border-color: tranparent;
   --marker-color: tranparent;
   --focus-color: #3b3b3b;
   --helper-color: rgba(200, 200, 200, 0.3);
-  --placeholder-color: #353535;
+  --placeholder-color:tranparent;
   padding-left: 0;
   border: 1px solid var(--border-color);
   &:focus {
     outline: 3px dashed var(--focus-color);
     outline-offset: -3px;
   }
+  
   li {
     position: relative;
     cursor: pointer;
@@ -182,36 +190,36 @@ $indentColor: #666;
     }
   }
   // 第 4 層 li 定義
-  li li li li{
-    .indent {
-      color: $dataColor;
-      &:before {
-        color: $indentColor;
-        font-family: "Font Awesome 6 Free";
-        font-weight: 400;
-        content: "\f148";
-        position: absolute;
-        left: calc(var(--pad) * 39);
-        top: calc(var(--pad));
-        rotate: 90deg;
-      }
-    }
-    div[data-src="第三層分類"] .indent {
-      padding-left: 0;
-      visibility: hidden;
-      position: relative;
-      &:before {
-        color: $indentColor;
-        font-family: "Font Awesome 6 Free";
-        font-weight: 400;
-        content: "\f148";
-        position: absolute;
-        left: 0;
-        top: calc(var(--pad));
-        rotate: 90deg;
-      }
-    }
-  }
+  // li li li li{
+  //   .indent {
+  //     color: $dataColor;
+  //     &:before {
+  //       color: $indentColor;
+  //       font-family: "Font Awesome 6 Free";
+  //       font-weight: 400;
+  //       content: "\f148";
+  //       position: absolute;
+  //       left: calc(var(--pad) * 39);
+  //       top: calc(var(--pad));
+  //       rotate: 90deg;
+  //     }
+  //   }
+  //   div[data-src="第三層分類"] .indent {
+  //     padding-left: 0;
+  //     visibility: hidden;
+  //     position: relative;
+  //     &:before {
+  //       color: $indentColor;
+  //       font-family: "Font Awesome 6 Free";
+  //       font-weight: 400;
+  //       content: "\f148";
+  //       position: absolute;
+  //       left: 0;
+  //       top: calc(var(--pad));
+  //       rotate: 90deg;
+  //     }
+  //   }
+  // }
   // 第 5 層 li 定義
   // 第 6 層 li 定義
   // 第 7 層 li 定義
@@ -287,4 +295,9 @@ pre[title="click to copy to clipboard"]:hover {
 .temporary-modal {
   background: black;
   color: white;
+}
+
+
+.monitor-container>ol>li{
+  width: 100%;
 }

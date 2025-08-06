@@ -34,7 +34,11 @@
               <div
                 class="mb-3 px-3 heading d-flex justify-content-between align-items-top"
               >
-                <h2 class="mb-0 fw-bold text-rat">SLAB Monitor - 監控系統</h2>
+                <div>
+                  <h2 class="mb-2 fw-bold text-rat">SLAB Monitor - 監控系統</h2>
+                  <div class="btn btn-warning btn-sm edit-sortable-start">編輯</div>
+                  <div class="btn btn-warning btn-sm edit-sortable-end">完成編輯</div>
+                </div>
                 <div class="page-nav-btn-group flex-shrink-0 align-self-top">
                   <div class="btn btn-sm btn-outline-light align-end mb-1">
                     <i class="fa-solid fa-reply"></i> Back
@@ -50,7 +54,9 @@
                 </div>
               </div>
 
+              <!-- json資料 -->
               <pre class="output"></pre>
+
               <!-- End of 頁面內容 -->
             </div>
           </div>
@@ -68,8 +74,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simulate/1.1.1/jquery.simulate.min.js"></script>
-    <!-- nestedSortable - customize -->
     <script src="/Plugin/nestedSortable/customize/nestedData.js"></script>
+    <!-- nestedSortable - customize -->
+    <script src="/Plugin/nestedSortable/customize/indentControl.js"></script>
     <script></script>
   </body>
 </html>

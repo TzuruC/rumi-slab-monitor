@@ -1,42 +1,20 @@
 $(document).ready(() => {
     $('.sortable').nestedSortable({
         items: 'li',
-        cancel: '.no-sort',  // 禁止拖曳的項目
-        maxLevels: 3, 
-        helper: 'clone',        
-        relocate: function (event, ui) {                    
-            // 同步渲染出JSON
-            // *.禁止拖拉到表頭上面
+        cancel: '.no-sort',       // 禁止拖曳的項目（例如th所在的li加上no-sort）
+        relocate: function (event, ui) {
             getHierarchyData();
         },
-        // 👉 例外定義區：
-        isAllowed: function (placeholder, placeholderParent, currentItem) {
-            const $placeholder = $(placeholder);
-            const $sortableRoot = $('.sortable');
-            const $noSort = $sortableRoot.children('li.no-sort');
-            
-            // 禁止成為 .no-sort(表頭) 的子層
-            if (placeholderParent && placeholderParent.hasClass('no-sort')) {
-                return false;
-            }
-             // 禁止成為 .no-sort(表頭) 的前一個 sibling
-            const isAtRootLevel = $placeholder.parent().is($sortableRoot);
-            if (isAtRootLevel && $placeholder.index() === 0) {
-                return false;
-            }
-
-            return true;
-        }
-});
+    });
 
     getHierarchyData();
     makeMobileFriendly();
 });
 
-function getHierarchyData(sortMove) {
+function getHierarchyData() {
     const hierarchy = $('.sortable').nestedSortable('toHierarchy');
-    $('.output').text(JSON.stringify(hierarchy, 'null', 2));
-    
+    console.log(hierarchy);
+    $('.output').text(JSON.stringify(hierarchy, null, 2));
 }
 
 function makeMobileFriendly() {
